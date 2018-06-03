@@ -79,7 +79,7 @@
         {# Se existir alguma pesquisa de CEP, cria uma tabela #}
         {% if table %}
            <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
-                {# Define o titulo de cada coluna#}
+                {# Define o titulo de cada coluna #}
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -106,7 +106,7 @@
                         {% if current_user.name and place.id!=0 %}
                             {# Botão salvar #}
                             <td style="background-color:#120F22">
-                                <a class="btn-save" href="{{ url_for('profile.save_place', id=place.id, cep=cep) }}">Salvar
+                                <a class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep) }}">Salvar
                             </td>
                         {% endif %}
                     </tr>
