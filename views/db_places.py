@@ -41,7 +41,6 @@ def find_places(user):
 def find_by_id(place):
     # Carrega a collection de locais
     collection = place_collection()
-    print(place)
     try:
         # Busca o id na collection
         place_id = collection.find_one({'_id': ObjectId(place) })
