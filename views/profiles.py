@@ -91,7 +91,7 @@ def remove_user():
         return redirect(url_for('profile.profile'))
 
 # Rota que salva local como favorito do usuário
-@profiles.route('/salvarlocal<int:id>/<string:cep>')
+@profiles.route('/salvarlocal<string:id>/<string:cep>')
 @login_required
 def save_place(id, cep):
     try:
