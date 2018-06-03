@@ -1,0 +1,122 @@
+{% extends "template.html" %}
+{% block content %}
+    
+{# Sessão redes sociais #}
+<div class="social-section" id="next">
+    <div class="container">
+        {# Lista com icones das redes sociais #}
+        <ul>
+            <li>Siga-nos nas redes sociais</li>
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
+        </ul>  
+    </div>
+</div>
+{# Sessão mensagem de introdução #}  
+<section class="text-section" id="intro">
+    {# Imagem esquerda #}
+    <div class="image-wrapper" style="background-image: url({{ url_for('static', filename='imgs/img1.jpg') }})">     
+    </div>
+    {# Texto #}
+    <div class="container">
+        <div class="intro section">
+            <h3><b>O <span class="font-green">Mapa Cultural</span> busca integrar eventos culturais e pessoas em <span class="font-green">São Paulo</span></b></h3>
+            <p class="margin-tb-20">O foco do mapa é integrar e dar visibilidade para projetos, artistas, espaços, eventos culturais e seus produtores.</p>
+        </div>
+    </div>
+</section>
+{# Sessão contador #}
+<section class="counter-section section" id="counter">
+    <div class="container">
+        <div class="row">
+            {# col-sm-12 col-md-12 #}
+            <div class="col-sm-12 col-md-12">
+                <center>
+                    {# Contador locais #}
+                    <div class="margin-b-30">
+                        <i class="margin-b-10 icon-gradient icon-gradient-bottle"></i>
+                        <h2><b><span class="counter-value" data-duration="1000" data-count="{{num_places}}">0</span></b></h2>
+                        <h6><b>Locais cadastrados</b></h6>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>
+{# Sessão locais #}
+<section class="section" id="locais">
+    <div class="container">
+        {# Texto pesquisa #}
+        <div class="heading-area">
+            <h3><b>Busque e salve os <span class="font-green">espaços mais próximos</span> de você e <span class="font-green">se divirta</span> em <span class="font-green">São Paulo.</span>
+            {# Se, não existir usuário logado, apresenta mais um texto #}
+            {% if not current_user.name %}
+            Faça login para <span class="font-green">salvar</span> os locais e vizualizar diretamente no seu perfil, sem <span class="font-green">precisar buscar</span>  novamente.</span>
+            {% endif %} 
+            </b></h3>
+        </div>
+        {# Form que recebe o valor da variavel CEP e atualiza a index #}
+        <form method="GET" action="/#locais">
+            {# CEP e Botão pesquisar #}
+            <div class="input-group mb-3">
+                {# Input CEP #}
+                <input type="number" name="cep" class="form-control" placeholder="Digite o CEP para buscar os pontos mais próximos a você" required>
+                {# Botao pesquisar #}
+                <div class="input-group-append">
+                    <button class="btn btn-border" type="submit" name="submit">
+                        <b>Pesquisar</b>
+                        <i class="ion-chevron-right"></i>
+                        <i class="ion-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            {# Inclui mensagens do flask #}
+            {% include "template/flash.html" %}            
+        </form>
+        {# Carrega o mapa com as coordenadas #}
+        {{movingmap.js}}<p>{{movingmap.html}}</p>
+        {# Se existir alguma pesquisa de CEP, cria uma tabela #}
+        {% if table %}
+           <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
+                {# Define o titulo de cada coluna#}
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Rua</th>
+                        <th>N°</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        {# Se existir, usuário logado, permite salvar local #}
+                        {% if current_user.name %}
+                        <th></th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                {# Cria uma linha para cada local no banco de dados #}
+                {% for place in places %}
+                    <tr>
+                        <td>{{ place.name }}</td>
+                        <td>{{ place.street }}</td>
+                        <td>{{ place.number }}</td>
+                        <td>{{ place.neighbor }}</td>
+                        <td>{{ place.city }}</td>
+                        {# Se existir, usuário logado, permite salvar o local #}
+                        {% if current_user.name and place.id!=0 %}
+                            {# Botão salvar #}
+                            <td style="background-color:#120F22">
+                                <a class="btn-save" href="{{ url_for('profile.save_place', id=place.id, cep=cep) }}">Salvar
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>     
+        {% endif %}
+    </div>
+</section>
+{# Carrega o JS que redireciona para a sessão locais #}
+<script src="{{ url_for('static', filename='js/section.js') }}"></script>
+    
+{% endblock content %}

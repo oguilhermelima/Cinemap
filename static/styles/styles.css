@@ -1,0 +1,567 @@
+/*====================================================
+	1. PRIMARY STYLES
+	2. BUTTON, GRADIENTS
+		BUTTON COMMON
+		BUTTON WITH BORDER 
+		BUTTON WITH BACKGROUND
+		BUTTON WITH UNDELINE
+		SITE NAVIGATION
+		GRADIENT ICON
+	3. MENU
+		LOGO
+		MAIN AREA
+		NAV ICON
+	4. HEADER
+		SCROLL DOWN BTN
+	5. SOCIAL SECTION
+	6. TEXT AREA
+	7. ABOUT AREA
+	8. COUNTER SECTION
+	9. FOOTER
+	10. ICON BOX STYLING
+	11. RESPONSIVE
+====================================================
+
+/* ---------------------------------
+1. PRIMARY STYLES
+--------------------------------- */
+
+html{ font-size: 100%; height: 100%; overflow-x: hidden;margin: 0px;  padding: 0px; touch-action: manipulation; }
+
+
+body{ font-size: 16px; font-family: 'Poppins', serif; width: 100%; height: 100%; margin: 0; font-weight: 400;
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; word-wrap: break-word; 
+	color: #333; }
+
+h1, h2, h3, h4, h5, h6, p, a, ul, span, li, img, inpot, button{ margin: 0; padding: 0; }
+
+h1,h2,h3,h4,h5,h6{ line-height: 1.3; font-weight: inherit; }
+
+h1,h2,h3{ font-family: 'Poppins', cursive; }
+
+p{ line-height: 1.6; font-size: 1.05em; font-weight: 400; color: #777; }
+
+h1{ font-size: 5em; line-height: 1; }
+h2{ font-size: 3.5em; line-height: 1.1; }
+h3{ font-size: 2.5em; }
+h4{ font-size: 2em; }
+h5{ font-size: 1.2em; }
+h6{ font-size: .9em; letter-spacing: 1px; }
+
+a, button{ display: inline-block; text-decoration: none; color: inherit; line-height: 1; transition: all .25s ease-in-out; }
+
+a:focus, a:active, a:hover,
+button:focus, button:active, button:hover,
+a b.light-color:hover{ text-decoration: none;}
+
+b{ font-weight: 600; }
+
+img{ width: 100%; }
+
+li{ list-style: none; display: inline-block; }
+
+span{ display: inline-block; }
+
+button{ outline: 0; border: 0; background: none; cursor: pointer; }
+
+.icon{ font-size: 1.1em; display: inline-block; line-height: inherit; }
+
+[class^="icon-"]:before, [class*=" icon-"]:before{ line-height: inherit; }
+
+b.max-bold{ font-weight: 700; }
+
+
+/* ---------------------------------
+2. COMMONS FOR PAGE DESIGN
+--------------------------------- */
+
+.section{ padding-top: 80px; padding-bottom: 50px; }
+
+.section .heading-area{ margin-bottom: 50px; }
+
+.left-area{ float: left; }
+
+.right-area{ float: right; }
+
+.font-green{ color: #43cea2; }
+.font-white{ color: #FFFFFF; }
+.font-white:link{ color: #FFFFFF; }
+
+.margin-tb-10{ margin-top: 10px; margin-bottom: 10px; }
+.margin-tb-20{ margin-top: 20px; margin-bottom: 20px; }
+.margin-tb-30{ margin-top: 30px; margin-bottom: 30px; }
+
+.margin-b-10{ margin-bottom: 10px; }
+.margin-b-20{ margin-bottom: 20px; }
+.margin-b-30{ margin-bottom: 30px; }
+.margin-b-50{ margin-bottom: 50px; }
+.margin-b-80{ margin-bottom: 80px; }
+.margin-t-5{ margin-top: 5px; }
+
+.margin-lr-10{ margin-left: 10px; margin-right: 10px; }
+
+.padding-lr-0{ padding-left: 0; padding-right: 0; }
+
+.position-relative{ position: relative; }
+
+.center-text{ text-align: center; } 
+
+.overflow-hidden{ overflow: hidden; }
+
+
+.display-table{ display: table; height: 100%; width: 100%; }
+
+.display-table-cell{ display: table-cell; vertical-align: middle; }
+
+
+::-webkit-input-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+::-moz-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+:-ms-input-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+:-moz-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+/* BUTTON COMMON */
+
+.btn{ font-size: .9em; padding: 13px 30px; letter-spacing: 2px; border-radius: 0px; 
+	position: relative; overflow: hidden; z-index: 1; }
+
+.btn i{ margin-left: 5px; }
+
+.btn i:last-child{ margin-left: -1px; transition: all .1s; opacity: .5; }
+
+.btn:hover i:last-child{ opacity: 1; }
+
+/* BUTTON WITH BORDER */
+
+.btn-border{ border: 2px solid #000; 
+	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+
+.btn-border:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+.btn-border:hover{ color: #fff; }
+
+.btn-border:hover:after{ opacity: 1; }
+
+.btn-reverse{ border: 2px solid #000; 
+	border-image: linear-gradient(to right, #ffffff 0%, #ffffff); border-image-slice: 1; }
+
+.btn-reverse:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+.btn-reverse:hover{ color: #fff; }
+
+.btn-reverse:hover:after{ opacity: 1; }
+
+/* BUTTON WITH BACKGROUND */
+
+.btn-fill{ border: 2px solid #ff6a00; color: #fff;
+	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+
+.btn-fill:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	opacity: 1; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+.btn-fill:hover{ color: #000; }
+
+.btn-fill:hover:after{ opacity: 0; }
+
+/* BUTTON SAVE */
+
+.btn-save, .btn-save:visited, .btn-save:link, .btn-save:hover{
+	width:100%;
+	font-size: 1em;
+	color: white;}
+
+/* BUTTON REMOVE */
+
+.btn-remove, .btn-remove:link, .btn-remove:visited, .btn-remove:hover{
+	width:100%;
+	font-size: 1em;
+	color: white;}
+
+/* SITE NAVIGATION */
+
+.site-navigation{ position: fixed; top: 50%; right: 20px; z-index: 100;
+	transform: translateY(-50%); }
+
+.site-navigation > li{ display: block; height: 30px; text-align: center; color: #aaa; }
+
+.site-navigation > li > a{ width: 30px; height: 30px; border-radius: 20px; position: relative;
+	border: 1px solid transparent; }
+
+.site-navigation > li > a:after{ content:''; display: block; margin: 11px auto; height: 7px; width: 7px; 
+	border-radius: 10px; background: #888; }
+
+.site-navigation > li:first-child > a,
+.site-navigation > li:last-child > a{ padding: 0; border: 0; line-height: 30px; }
+
+.site-navigation > li:first-child > a:after,
+.site-navigation > li:last-child > a:after{ background: none; width: auto; height: auto; }
+
+.site-navigation > li > a > .tool-tip{ position: absolute; right: 0; padding: 5px 15px; 
+	opacity: 0; transition: right .2s, opacity .2s; transform: scale(0); color: #aaa; }
+
+.site-navigation > li > a.active,
+.site-navigation > li > a:hover{ border-color: #aaa; }
+
+.site-navigation > li > a:hover:after{ background: #bbb; }
+
+.site-navigation > li > a:hover > .tool-tip{ opacity: 1; right: 100%; transform: scale(1); }
+
+/* GRADIENT ICON  */
+
+.icon-gradient{ display: inline-block; height: 50px; width: 50px; background-size: cover; 
+	background-image: url(../imgs/gradinet-icons.png); }
+
+.icon-gradient-2{ display: inline-block; height: 50px; width: 50px; background-size: cover; 
+	background-image: url(../imgs/gradinet-icons-2.png); }
+
+.icon-gradient.icon-gradient-event{ background-position: 0; }
+.icon-gradient.icon-gradient-bottle{ background-position: 150px ; }
+
+.icon-gradient-2.icon-gradient-place{ background-position: 0px; }
+.icon-gradient-2.icon-gradient-user{ background-position: -51px; }
+.icon-gradient-2.icon-gradient-add{ background-position: -100px; }
+.icon-gradient-2.icon-gradient-edit{ background-position: -150px; }
+
+/* ---------------------------------
+3. MENU
+--------------------------------- */
+
+header{ position: absolute; left: 0; right: 0; top: 20px; z-index: 1000; font-size: .95em; font-weight: 500; color: #fff; }
+	
+/* LOGO */
+
+header .logo img{ height: 50px; width: auto; }
+
+/* MAIN AREA */
+
+header .main-menu{ float: right; margin: 0px -15px; }
+
+header .main-menu > li > a{ height: 50px; line-height: 46px; padding: 0 5px; margin: 0 10px; position: relative;
+	overflow: hidden; }
+
+header .main-menu > li > a:after{ content: ''; position: absolute; bottom: 10px; left: 0; right: 0; height: 2px; 
+	transform: translateX(-100%); opacity: 0; background: #fff; }
+
+header .visible.main-menu{ display: block; }
+
+header .main-menu > li > a:hover{ color: #eee; }
+
+header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
+
+/* NAV ICON */
+
+.menu-nav-icon{ display: none; height: 60px; width: 50px; text-align: center; line-height: 60px; cursor: pointer; 
+	font-size: 2em; }
+	
+/* ---------------------------------
+4. HEADER
+--------------------------------- */
+
+.main-slider{ height: calc(100%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
+
+.main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
+	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+
+.main-subpages{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
+
+.main-subpages:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
+	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+
+.main-profile{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
+
+.main-profile:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
+	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+
+.main-user{ height: calc(10%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
+
+.main-user:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
+	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+
+.slider-content .hand-writing{ margin-top: -10px; font-size: 6em; letter-spacing: 4px; font-family: Allura; }
+
+.slider-content .pre-heading{ margin-bottom: 10px; letter-spacing: 1px; }
+
+.slider-content .slider-btn{ margin-top: 30px; border-color: #fff; color: #fff; }
+
+.slider-content .slider-btn:hover{ background: #fff; color: #222; }
+
+/* SCROLL DOWN BTN */
+
+.scroll-down-btn{ padding: 0; position: absolute; bottom: 20px; right: 20px; font-size: .8em;
+	transform: rotate(90deg) translateX(-50%); color: #fff; }
+
+.scroll-down-btn:hover{ color: #ddd; }
+
+.scroll-down-btn i{ margin-left: 5px; }
+
+.scroll-down-btn i:last-child{ margin-left: -1px; transition: all .1s; opacity: .5; }
+
+.scroll-down-btn:hover i:last-child{ opacity: 1; }
+
+/* ---------------------------------
+5. SOCIAL SECTION
+--------------------------------- */
+
+.social-section{ padding: 40px 0; background-color: #120F22; color: #fff; }
+
+.social-section ul > li:first-child{ position: relative; padding-right: 270px; margin-right: 10px; }
+
+.social-section ul > li:first-child:after{ content: ''; width: 250px; position: absolute; top: 50%; 
+	right: 0; height: 2px; margin-top: -1px; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%);  }
+
+.social-section ul > li > a{ padding: 0 10px; }
+
+/* ---------------------------------
+6. TEXT AREA
+--------------------------------- */
+
+.text-section{ overflow: hidden; position: relative; }
+
+.text-section .image-wrapper{ width: 40%; position: absolute; top: 0; bottom: 0; left: 0; z-index: 1;
+	background-size: cover; }
+
+.text-section .image-wrapper .icon{ position: absolute; top: 50%; left: 50%; font-size: 80px; 
+	width: 80px; text-align: center; line-height: 1; 
+	margin-left: -40px; margin-top: -40px; color: #fff; }
+
+.text-section .image-wrapper:after{  content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .5;
+	z-index: -1; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+.text-section .intro{ width: 60%; margin-left: 40%; padding-left: 60px; }
+
+
+/* ---------------------------------
+7. ABOUT AREA
+--------------------------------- */
+
+.about-section{ overflow: hidden; position: relative; background: #fff; }
+
+.about-section .image-wrapper{ width: 40%;position: absolute; 
+	top: 0; bottom: 0; left: 0; text-align: right; }
+
+.about-section .image-wrapper img{  max-width: 300px; }
+
+.about-section .about{ width: 100%; margin-left: 0%; padding-left: 60px; }
+
+/* ---------------------------------
+8. COUNTER SECTION
+--------------------------------- */
+
+.counter-section{ background: #120F22; color: #fff; }
+
+/* ---------------------------------
+9. FOOTER
+--------------------------------- */
+
+footer{ padding: 40px 15px 20px; background: #120F22; color: #fff; }
+
+footer .logo img{ height: 150px; width: auto; }
+
+footer .footer-section{ padding-left: 20px; }
+
+footer .footer-section .title{ position: relative; }
+
+footer .footer-section .title:after{ content:''; position: absolute; top: 5px; left: -20px; height: 12px; 
+	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+}/* ---------------------------------
+10. ICON BOX STYLING
+--------------------------------- */
+.icnbox:after, footer .footer-section .title:after {
+    content: '';
+    background: linear-gradient(15deg, #185a9d 0, #43cea2 100%)
+}
+
+.icnbox{ padding: 80px 40px 60px; position: relative; border: 2px solid #ff6a00;
+	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+
+.icnbox:after{ content:''; position:absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	transition: all .25s ease-in; opacity: 0; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+
+.icnbox.active,
+.icnbox.active .desc,
+.icnbox:hover,
+.icnbox:hover .desc{ color: #fff; }
+
+.icnbox.active:after,
+.icnbox:hover:after{ opacity: 1; }
+
+.icnbox.active .icon,
+.icnbox:hover .icon{ filter: brightness(0) invert(1); }
+
+/* --------------------------------------
+11. RESPONSIVE
+-----------------------------------------*/
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {	
+	
+}
+
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 992px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	h1{ font-size: 4em; }
+	h2{ font-size: 3em; }
+	h3{ font-size: 2em; }
+		
+	/* ---------------------------------
+	2. INTRO AREA
+	--------------------------------- */
+	
+	.text-section .image-wrapper{ position: relative; width: 100%; height: 300px; }
+	
+	.text-section .intro{ margin: 0; width: 100%; padding-left: 0px; }
+		
+	/* ---------------------------------
+	3. ABOUT AREA
+	--------------------------------- */
+	
+	.about-section .image-wrapper{ display: none; }
+	
+	.about-section .about{ margin: 0; width: 100%; padding-left: 0px; }
+	
+}
+
+/* Screens Resolution : 767px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	p{ line-height: 1.4; }
+
+	h1{ font-size: 3em; }
+	h2{ font-size: 2.5em; }
+	h3{ font-size: 1.8em; }
+	h4{ font-size: 1.5em; }
+	h5{ font-size: 1.2em; }
+	
+	/* ---------------------------------
+	2. BUTTON, GRADIENTS
+	--------------------------------- */
+
+	.section{ padding: 50px 0 20px; }
+
+	.section .heading-area{ margin-bottom: 30px; }
+
+	.btn{ padding: 10px 20px; }
+	
+	.btn-fill{ padding: 10px; } 
+		
+	/* SITE NAVIGATION */
+
+	.site-navigation{ display: none; }
+	
+	/* ---------------------------------
+	3. MENU
+	--------------------------------- */
+	
+	header{ top: 0; border-bottom: 1px solid rgba(255,255,255, .1); }
+	
+	header .logo img{ margin: 12px 0; height: 36px; }
+		
+	/* BOTTOM AREA */
+	
+	header .main-menu{ text-align: left; display: none; float: none; clear: both; max-height: 400px;
+		overflow: auto; border-top: 1px solid #ccc; background: #333; }
+	
+	header .main-menu > li{ display: block; float: none; border-bottom: 1px solid #444; }
+	
+	header .main-menu > li:last-child{ border-bottom: 0; }
+	
+	header .main-menu li > a{ display: block; border: 0; line-height: 1; height: auto; padding: 15px; background: none; }
+	
+	/* NAV ICON */
+	
+	.menu-nav-icon{ display: inline-block; float: right; }
+	
+	/* HOVER */
+		
+	header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 0; }
+	
+	/* ---------------------------------
+	4. SLIDER
+	--------------------------------- */
+	
+	/* SCROLL DOWN BTN */
+
+	.scroll-down-btn{ display: none; }
+		
+	/* ---------------------------------
+	5. SOCIAL SECTION
+	--------------------------------- */
+
+	.social-section ul > li:first-child{ display: block; padding: 0px 0 12px; margin: 0 0 10px; }
+
+	.social-section ul > li:first-child:after{ width: 100%; bottom: 0; left: 0; top: auto; }
+	
+	.social-section ul > li > a{ padding: 0; padding-right: 15px; }
+		
+	/* ---------------------------------
+	6. User info
+	--------------------------------- */
+
+	.main-user{
+		height: calc(90%)
+	}
+	.main-user h2{
+		font-size:2em;
+		margin-top: 20%;
+	}
+	.main-user h4{
+		position: left;
+		font-size: 1.5em;
+	}
+	/* ---------------------------------
+	7. FOOTER
+	--------------------------------- */
+
+	footer{ padding: 50px 0px 10px; }	
+}
+
+/* Screens Resolution : 575px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 575px) {
+	
+	/* ---------------------------------
+	1. PRIMARY STYLES
+	--------------------------------- */
+
+	body{ font-size: 14px;  }
+		
+	/* ---------------------------------
+	2. COUNTER SECTION
+	--------------------------------- */
+	.counter-section{ text-align: center; }
+	
+}
+/* Screens Resolution : 479px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 479px) {
+
+}
+
+/* Screens Resolution : 359px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 359px) {	
+	
+}
+
+/* Screens Resolution : 290px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 290px) {	
+	
+}

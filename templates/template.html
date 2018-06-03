@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        {# Recebe do flask o titulo da página #}
+        <title>{{ titulo }}</title>
+
+        {# Inclue o CSS #}
+        {% include "template/css.html" %}
+    </head>
+    <body >
+        {# Inclue a navbar #}
+        {% include "template/navbar.html" %}
+
+        {# Imagem do topo #}
+        {% if titulo=="Mapa Cultural" %}
+            {# Inclue a imagem da home #}
+            {% include "template/header-principal.html" %}
+        {% elif titulo=="Perfil" %}
+            {# Sem imagem #}
+            {% include "template/header-user.html" %}
+        {% elif titulo != "Meu Perfil" %}
+            {# Se não for nenhuma das páginas anteriores
+                inclue a imagem padrão #}            
+            {% include "template/header.html" %}
+        {% endif %}
+
+        {# CONTEUDOS DAS PAGINAS #}
+        {% block content %}             
+        {% endblock content %}
+
+        {# Footer e JS #}
+        {% include "template/footer.html" %}
+    </body>
+</html>

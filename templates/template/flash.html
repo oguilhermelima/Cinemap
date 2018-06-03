@@ -1,0 +1,15 @@
+{# Mensagens flash de sucesso #}
+{% set mensagens_sucesso  = ["Local cadastrado com sucesso!", "Usuário cadastrado com sucesso!",
+"Local salvo com sucesso!", "Editado com sucesso!", "Removido com sucesso", "Usuário removido com sucesso!"] %}
+
+{# Se a mensagem existir no array mensagens_sucesso apresenta o botão sucesso, 
+	se não o botão danger #}
+{% for message in get_flashed_messages() %}
+	{% if message in mensagens_sucesso %}
+		{# Botão sucesso #}
+		<button type="button" class="btn btn-success btn-lg btn-block">{{ message }}</button>
+	{% else %}
+		{# Botão danger #}
+		<button type="button" class="btn btn-danger btn-lg btn-block">{{ message }}</button>
+	{% endif %}
+{% endfor %}

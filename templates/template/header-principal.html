@@ -1,0 +1,23 @@
+{# Imagem de fundo do header #}
+<div class="main-slider" style="background-image:url({{ url_for('static', filename='imgs/header.jpg') }});">
+    {# Div com o texto #}
+    <div class="display-table center-text">
+        <div class="display-table-cell">
+            <div class="slider-content">
+                {# Botão deslize para baixo #}
+                <a class="scroll-down-btn" href="#next">Deslize para baixo
+                    {# Setas #}
+                    <i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
+                </a>
+                {# Logo #}  
+                <a class="logo">
+                    <img src="{{ url_for('static', filename='imgs/logo_mini.png') }}" alt="Logo">
+                </a>
+                {# Recebe do flask o titulo #}
+                <h1><b>{{ titulo }}</b></h1>
+                {# Recebe do flask o subtitulo #}
+                <h1 class="hand-writing">{{ subtitulo }}</h1>
+            </div>
+        </div>
+    </div>
+</div>

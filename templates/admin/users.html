@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+{# Sessão com a tabela de usuários #}
+<section class="section">
+    <div class="container">
+        {# Define o estilo da tabela, como responsiva, com bordar e hover #}
+        <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
+        {# Define o titulo de cada coluna #}
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {# Cria uma linha para cada local no banco de dados #}
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user._id }}</td>
+                {# Botão remove #}
+                <td>{{ user.email }}</td>
+                <td style="background-color:#d60000">
+                    <a class="btn-remove" href="{{ url_for('administration.remove_user', id=user._id) }}">Remover
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>    
+</section>
+  
+{% endblock content %}

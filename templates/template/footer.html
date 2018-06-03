@@ -1,0 +1,28 @@
+{# Footer #}
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            {# col-md-12 col-lg-12 col-xl-12 #}
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <center>
+                    {# Div com logo e texto centralizados #}
+                    <div class="margin-b-30">
+                        {# Logo #}
+                        <a class="logo"><img src="{{ url_for('static', filename='imgs/logo_white.png') }}"></a>
+                        {# Texto #}
+                        <p class="font-white copyright">Desenvolvido por: 
+                            <a href="https://github.com/oguilherme-lima" target="_blank">Guilherme Lima de Oliveira</a>
+                        </p>
+                    </div>
+                </center>  
+            </div>
+        </div>
+    </div>
+</footer>
+
+{# JS #}
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>

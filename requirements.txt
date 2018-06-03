@@ -1,0 +1,6 @@
+flask==0.12.2
+pymongo==2.8.1
+flask_googlemaps==0.2.6
+geopy==1.13.0
+pycep-correios==2.3.1
+flask-login

@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+<!-- Sessão com os botões -->
+<section class="section">
+  <div class="container">
+      <div class="row">
+        <!-- col-sm-12 col-md-6 col-lg-6 -->
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <!-- Caixa - Botão -->
+          <a class="icnbox active margin-b-50" href="{{ url_for('administration.new_place') }}">
+            <!-- Ícone -->
+            <i class="margin-b-10 icon icon-gradient-2 icon-gradient-add"></i>
+            <!-- Texto -->
+            <h5 class="margin-tb-20"><b>Adicionar Local</b></h5>
+            <!-- Preenchimento botão -->
+            <p class="desc">                                                                                                     </p>
+          </a>
+        </div>
+        <!-- col-sm-12 col-md-6 col-lg-6 -->
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <!-- Caixa - Botão -->
+          <a class="icnbox  margin-b-50" href="{{ url_for('administration.listplace') }}">
+            <!-- Ícone -->
+            <i class="margin-b-10 icon icon-gradient-2 icon-gradient-edit "></i>
+            <!-- Texto -->
+            <h5 class="margin-tb-20"><b>Editar Locais</b></h5>
+            <!-- Preenchimento botão -->
+            <p class="desc">                                                                                                     </p>
+          </a>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

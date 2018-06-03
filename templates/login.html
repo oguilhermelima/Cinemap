@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+{# Caixa #}
+<div class="limiter">
+  <div class="container-contact100">
+    <div class="wrap-contact100" id="next">
+      {# Título #}
+      <div class="login100-form-title">
+        <span class="contact100-form-title">Seja bem-vindo</span>
+      </div>
+      {# Formulario que redireciona para rotar autenticate #}
+      <form method="POST" action="{{ url_for('signin.autenticate') }}"  class="contact100-form validate-form">
+        {# Input oculto que recebe o valor da proxima url #}
+        <input type="hidden" name="proxima" value="{{ proxima or url_for('index.index') }}">
+        {# Label e input do usuário #}
+        <div class="wrap-input100 validate-input bg1" data-validate="Username obrigatório">
+          <span class="label-input100">USUÁRIO</span>
+          <input class="input100" type="text" id="usuario" name="usuario" placeholder="Digite seu username">
+        </div>
+        {# Label e input da senha #}
+        <div class="wrap-input100 validate-input bg1" data-validate="Senha obrigatória">
+          <span class="label-input100">SENHA</span>
+          <input class="input100" type="password" id="senha" name="senha" placeholder="Digite sua senha">
+        </div>
+        {# col-md-12 col-lg-12 col-xl-12 #}
+        <div class="col-md-12 col-lg-12 col-xl-12">
+          <center>
+            {# Botão submit #}
+            <button class="btn btn-border" type="submit" name="submit">
+              <b>ENTRAR</b>
+              <i class="ion-chevron-right"></i>
+              <i class="ion-chevron-right"></i>
+            </button>
+          </center>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  
+{% endblock content %}

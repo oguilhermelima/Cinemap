@@ -1,0 +1,102 @@
+{% extends "template.html" %}
+{% block content %}
+
+{# Imagem de fundo do header #}
+<div class="main-profile" style="background-image:url({{ url_for('static', filename='imgs/signinup.jpg') }});">
+    {# Div com o texto #}
+    <div class="display-table center-text">
+        <div class="display-table-cell">
+            {# Textos #}
+            <div class="slider-content">
+                <h2>Olá, <b>{{ current_user.name }}</b></h2>
+                {# Usuário #}
+                <h4 class="margin-tb-20">
+                    <b>Username:</b> {{ current_user._id }}
+                </h4>
+                {# E-mail #}
+                <h4 class="margin-tb-20">
+                    <b>E-mail:</b> {{ current_user.email }}
+                </h4>
+                {# Botão editar dados #}
+                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.edit_user') }}">
+                    <b>EDITAR DADOS</b>
+                    <i class="ion-chevron-right"></i>
+                    <i class="ion-chevron-right"></i>
+                </a>
+                {# Botão editar senha #}
+                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.edit_password') }}">
+                    <b>EDITAR SENHA</b>
+                    <i class="ion-chevron-right"></i>
+                    <i class="ion-chevron-right"></i>
+                </a>
+                {# Botão Excluir perfil #}
+                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.remove_user') }}">
+                    <b>EXCLUIR PERFIL</b>
+                    <i class="ion-chevron-right"></i>
+                    <i class="ion-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{# Mensagens flash #}
+{% include "template/flash.html" %}
+{# Sessão com o título #}
+<div class="social-section" id="next">
+    <div class="container">
+    	<h4><b>Locais salvos</b></h4>
+    </div>
+</div>
+
+{# Se existir lugares, carrega a tabela #}
+{% if places %}
+    <section class="section">
+        {# Imagem de fundo do header #}
+        <div class="container">
+            {# Carrega o mapa com as coordenadas #}
+            {{movingmap.js}}<p>{{movingmap.html}}</p>
+            {# Define o estilo da tabela, como responsiva, com bordar e hover #}
+            <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
+            {# Define o titulo de cada coluna #}
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Rua</th>
+                        <th>N°</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {# Cria uma linha para cada local no banco de dados #}
+                    {% for place in places %}
+                        <tr>
+                            <td>{{ place.name }}</td>
+                            <td>{{ place.street }}</td>
+                            <td>{{ place.number }}</td>
+                            <td>{{ place.neighbor }}</td>
+                            <td>{{ place.city }}</td>
+                            {# Botão remover #}
+                            <td style="background-color:#d60000"><a class="btn-remove" href="{{ url_for('profile.delete_place', id=place._id) }}">Remover</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+          </table>    
+        </div>
+    </section>
+{# Se não existir locais, apresenta uma mensagem #}
+{% else %}
+    <section class="about-section section">  
+        <div class="container position-relative">
+            {# Mensagem locais #}
+            <div class="about">
+                <h3>
+                    <b>Nenhum local salvo. Para salvar locais, utilize o mapa na página inicial</b>
+                </h3>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+{% endblock content %}

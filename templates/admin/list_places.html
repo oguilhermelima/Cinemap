@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+{# Sessão com a tabela de locais #}
+<section class="section">
+    <div class="container">
+        <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
+        {# Define o topo da tabela como dark e define o titulo de cada coluna #}
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Rua</th>
+                <th>N°</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {# Cria uma linha para cada local no banco de dados #}
+        {% for place in places %}
+            <tr>
+                <td>{{ place.name }}</td>
+                <td>{{ place.street }}</td>
+                <td>{{ place.number }}</td>
+                <td>{{ place.neighbor }}</td>
+                <td>{{ place.city }}</td>
+                {# Botão editar #}
+                <td style="background-color:#43cea2">
+                    <a class="btn-save" href="{{ url_for('administration.edit', id=place._id) }}">Editar</a>
+                </td>
+                {# Botão remover #}
+                <td style="background-color:#d60000">
+                    <a class="btn-remove" href="{{ url_for('administration.remove', id=place._id) }}">Remover</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>    
+</section>
+  
+{% endblock content %}

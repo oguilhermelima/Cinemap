@@ -1,0 +1,46 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+{# Caixa #}
+<div class="limiter">
+  <div class="container-contact100">
+    <div class="wrap-contact100" id="next">
+      {# Titulo do form #}
+      <div class="login100-form-title">
+        <span class="contact100-form-title">Editar usuário</span>
+      </div>
+      {# Cria um form que redireciona para autenticação de novo usuario #}
+      <form method="POST" action="{{ url_for('profile.finish_edit') }}" class="contact100-form validate-form">
+        {# Label e input do nome #}
+        <div class="wrap-input100 validate-input bg1" data-validate="Nome inválido">
+          <span class="label-input100">NOME</span>
+          <input class="input100" type="text" id="nome" name="nome" value="{{current_user.name}}"placeholder="Digite seu nome">
+        </div>
+        {# Label e input do email #}
+        <div class="wrap-input100 validate-input bg1" data-validate="E-mail inválido">
+          <span class="label-input100">E-MAIL</span>
+          <input class="input100" type="email" id="email" name="email" value="{{current_user.email}}"placeholder="Digite um email do tipo example@example.com">
+        </div>
+        {# Label e input do usuario #}
+        <div class="wrap-input100 validate-input bg1" data-validate="Username inválido">
+          <span class="label-input100">USUÁRIO</span>
+          <input class="input100" type="text" id="usuario" name="usuario" value="{{current_user._id}}"placeholder="Digite um username">
+        </div>
+        {# col-md-12 col-lg-12 col-xl-12 #}
+        <div class="col-md-12 col-lg-12 col-xl-12">
+          {# Botão submit #}
+          <center>
+            <button class="btn btn-border" type="submit" name="submit">
+              <b>Finalizar edição</b>
+              <i class="ion-chevron-right"></i>
+              <i class="ion-chevron-right"></i>
+            </button>
+          </center>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+ 
+{% endblock content %}

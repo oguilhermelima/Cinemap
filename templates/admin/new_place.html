@@ -1,0 +1,57 @@
+{% extends "template.html" %}
+{% block content %}
+{% include "template/flash.html" %}
+
+<!-- CAIXA  -->
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <!-- Form - Rota submit_edit -->
+    <form action="{{ url_for('administration.create_place') }}" method="post" class="contact100-form validate-form">
+      <!-- Div com nome do local e input -->
+      <div class="wrap-input100 validate-input bg1" data-validate="Nome obrigatório">
+        <span class="label-input100">NOME DO LOCAL</span>
+        <input class="input100" type="text" id="nome" name="nome" placeholder="Digite um nome para representar o local">
+      </div>
+      <!-- Div com CEP e input -->
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="CEP obrigatório">
+        <span class="label-input100">CEP</span>
+        <input class="input100" type="text" id="cep" name="cep" placeholder="Digite o CEP">
+      </div>
+      <!-- Div com numero e input -->
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Número obrigatório">
+        <span class="label-input100">Número</span>
+        <input class="input100" type="number" id="numero" name="numero" placeholder="Digite o número do local">
+      </div>
+      <!-- Div com rua e input -->
+      <div class="wrap-input100 bg1">
+        <span class="label-input100">Rua</span>
+        <input class="input100" type="text" id="rua" name="rua" readonly="true">
+      </div>
+      <!-- Div com bairro e input -->
+      <div class="wrap-input100 bg1">
+        <span class="label-input100">Bairro</span>
+        <input class="input100" type="text" id="bairro" name="bairro" readonly="true">
+      </div>        
+      <!-- Div com cidade e input -->
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
+        <span class="label-input100">Cidade</span>
+        <input class="input100" type="text" id="cidade" name="cidade" readonly="true">
+      </div>
+      <!-- Div com estado e input -->
+      <div class="wrap-input100 bg1 rs1-wrap-input100">
+        <span class="label-input100">Estado</span>
+        <input class="input100" type="text" id="estado" name="estado" readonly="true">
+      </div>
+      <!-- Botão submit -->
+      <div class="container-contact100-form-btn">
+        <button class="btn btn-border" type="submit" name="submit">
+            <b>Adicionar novo local</b>
+            <i class="ion-chevron-right"></i>
+            <i class="ion-chevron-right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
