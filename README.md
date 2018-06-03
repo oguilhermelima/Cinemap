@@ -4,7 +4,7 @@ Página que busca, armazena endereços e os apresentam no Google Maps. Também �
 
 ## Deploy no HEROKU
 
-**Link**: [HEROKU](mapacultural.herokuapp.com/).
+**Link**: [HEROKU](http://mapacultural.herokuapp.com/).
 
 ## Deploy
 
