@@ -1,18 +1,33 @@
 # MAPA
 
-Página que busca, armazena endereços e os apresentam no Google Maps. Também é possível buscar os locais salvos mais próximos de um CEP.
+Página que permite um usuário se cadastrar e salvar os locais mais próximos de um CEP.
+## Recursos: ##
+**Usuários:**
+* Cadastro e login
+* Editar perfil
+* Pesquisa de locais próximos de um CEP
+* Salvar locais pesquisados
+
+**Administrador**
+* Cadastro de novos locais
+* Gestão de locais (edição e remoção)
+* Gestão de usuários
 
 ## Deploy no HEROKU
 
-**Link**: [HEROKU](http://mapacultural.herokuapp.com/).
+**LINK HEROKU - [MAPA](http://mapacultural.herokuapp.com/).**
 
 ## Deploy
+
+### Python ###
 
 Download e instalação da versão mais recente do Python
 
 **Windows** - [Python](https://www.python.org/downloads/).
 
 **Linux** - A maioria das versões linux já vem com python3 instalado.
+
+### PIP ###
 
 Agora, faça a instalação do Pip para Python 3
 
@@ -23,9 +38,24 @@ sudo apt-get install python3-pip
 
 **Não é necessário a instalação do PIP no windows**
 
+### Clone do repositório ###
+
+**Opção 1: Faça o download do repositório** - [Download](https://github.com/oguilherme-lima/maps/archive/master.zip)
+
+Extraia o ZIP, e acesse **maps-master**
+
+**Opção 2: Faça o clone pelo Git Bash**
+```
+git clone https://github.com/oguilherme-lima/maps.git
+```
+Depois digite
+```
+cd maps
+```
+
 ### Pacotes
 
-No diretório do **requiriments.txt** execute:
+**Opção 1: No mesmo diretório do requiriments.txt execute:**
 
 **Windows**
 ```
@@ -37,7 +67,7 @@ pip3 install -r requirements.txt
 sudo pip3 install -r requirements.txt
 ```
 
-**Ou execute no terminal**
+**Opção 2: execute no terminal**
 
 **Windows**
 ```
@@ -70,6 +100,7 @@ flask run
 ## Construído com
 * [Python](https://python.org/) - Linguagem de programação
 * [Flask](http://flask.pocoo.org/) - Microframework Web
+* [Flask Login](https://flask-login.readthedocs.io/en/latest/) - Gestão de usuários
 * [Geopy](http://geopy.readthedocs.io) - API que gera coordenadas a partir de um endereço
 * [Flask_GoogleMaps](https://github.com/rochacbruno/Flask-GoogleMaps) - API que constrói um mapa baseado na Google Maps JavaScript API
 * [PyCEPCorreios](https://pycep-correios.readthedocs.io/) - API de consulta de CEP
