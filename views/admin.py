@@ -112,13 +112,15 @@ def submit_edit():
             return redirect(url_for('administration.edit'))
         # Gera as coordenadas 
         address = coordenates(model)
+        # Recebe o _id do local, para o find do local no banco pelo Object ID
+        place_id = str(request. form['place_id'])
         # Recebe o ID do local
-        id_place = str(request. form['place_id'])
+        placeid = str(request. form['placeid'])
         # Cria uma instancia do tipo Place, que armazena um indereço completo + icone  
-        place = Places(id_place, cep, name, street, number, neighbor, city, state,
+        place = Places(placeid, cep, name, street, number, neighbor, city, state,
                        address.latitude, address.longitude, None)
         # insere no banco a instancia convertida para dicionario
-        edit_place(id_place, place.__dict__)
+        edit_place(place_id, place.__dict__)
         flash("Editado com sucesso!")
     except:
         flash("Erro ao editar")
