@@ -514,14 +514,14 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	6. User info
 	--------------------------------- */
 
-	.main-user{
+	.main-profile{
 		height: calc(90%)
 	}
-	.main-user h2{
+	.main-profile h2{
 		font-size:2em;
 		margin-top: 20%;
 	}
-	.main-user h4{
+	.main-profile h4{
 		position: left;
 		font-size: 1.5em;
 	}
