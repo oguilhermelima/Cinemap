@@ -15,7 +15,7 @@
       <!-- Div com CEP e input -->
       <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="CEP obrigatório">
         <span class="label-input100">CEP</span>
-        <input class="input100" type="text" id="cep" name="cep" placeholder="Digite o CEP">
+        <input class="input100" type="number" id="cep" name="cep" placeholder="Digite o CEP">
       </div>
       <!-- Div com numero e input -->
       <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Número obrigatório">
@@ -23,22 +23,22 @@
         <input class="input100" type="number" id="numero" name="numero" placeholder="Digite o número do local">
       </div>
       <!-- Div com rua e input -->
-      <div class="wrap-input100 bg1">
+      <div class="wrap-input100 validate-input bg1" data-validate="Rua obrigatória, verifique o CEP">
         <span class="label-input100">Rua</span>
         <input class="input100" type="text" id="rua" name="rua" readonly="true">
       </div>
       <!-- Div com bairro e input -->
-      <div class="wrap-input100 bg1">
+      <div class="wrap-input100 validate-input bg1" data-validate="Bairro obrigatório">
         <span class="label-input100">Bairro</span>
         <input class="input100" type="text" id="bairro" name="bairro" readonly="true">
       </div>        
       <!-- Div com cidade e input -->
-      <div class="wrap-input100 bg1 rs1-wrap-input100">
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Cidade obrigatória">
         <span class="label-input100">Cidade</span>
         <input class="input100" type="text" id="cidade" name="cidade" readonly="true">
       </div>
       <!-- Div com estado e input -->
-      <div class="wrap-input100 bg1 rs1-wrap-input100">
+      <div class="wrap-input100 bg1 validate-input rs1-wrap-input100" data-validate="Estado obrigatório">
         <span class="label-input100">Estado</span>
         <input class="input100" type="text" id="estado" name="estado" readonly="true">
       </div>
