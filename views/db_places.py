@@ -16,7 +16,7 @@ def insert_places(place):
 
 # Read all
 # Procura os locais no banco para atualizar a lista e o mapa
-def find_places(user):
+def find_places(user, qtt):
     # Carrega a collection de locais
     collection = place_collection()
     # Cria um array que irá armazenar os pontos
@@ -28,7 +28,7 @@ def find_places(user):
         # Cria um indice de busca na collection lugares
         collection.create_index([("coordinates", GEO2D)])
         # Busca os 10 locais mais proximos. 
-        for place in collection.find(query).limit(10):
+        for place in collection.find(query).limit(qtt):
             places.append(place)
         return places
     # Busca todos os usuários no banco e ordena por nome

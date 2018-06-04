@@ -36,7 +36,7 @@
                     {# Contador locais #}
                     <div class="margin-b-30">
                         <i class="margin-b-10 icon-gradient icon-gradient-bottle"></i>
-                        <h2><b><span class="counter-value" data-duration="1000" data-count="{{num_places}}">0</span></b></h2>
+                        <h2><b>+ <span class="counter-value" data-duration="1000" data-count="40">0</span></b></h2>
                         <h6><b>Locais cadastrados</b></h6>
                     </div>
                 </center>
@@ -56,10 +56,20 @@
             {% endif %} 
             </b></h3>
         </div>
-        {# Form que recebe o valor da variavel CEP e atualiza a index #}
+        {# Form que recebe o valor da variavel CEP, filtros e atualiza o mapa no index #}
         <form method="GET" action="/#locais">
+            {# Filtros com dropdown. Quantidade e cidades #}
+            <div class="input-group padding-lr-0 mb-3 col-xs-12 col-md-7">
+                {# Filtro quantidades, retorna variavel qtt #}
+                <select name="qtt" id="qtt" class="form-control form-control-sm">
+                  <option value="10"><b>Quantidade de locais</b></option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
+            </div>
             {# CEP e Botão pesquisar #}
-            <div class="input-group mb-3">
+            <div style="position: relative;"class="input-group mb-3">
                 {# Input CEP #}
                 <input type="number" name="cep" class="form-control" placeholder="Digite o CEP para buscar os pontos mais próximos a você" required>
                 {# Botao pesquisar #}
@@ -71,6 +81,7 @@
                     </button>
                 </div>
             </div>
+
             {# Inclui mensagens do flask #}
             {% include "template/flash.html" %}            
         </form>

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, request, flash
 # Api correios que recebe o CEP e retorna o Endereço
 from pycep_correios import consultar_cep 
 from .db_places import find_places
@@ -9,27 +9,34 @@ ind = Blueprint('index', __name__)
 
 @ind.route('/')
 def index():
+    # Receberá a quantidade de locais a ser pesquisado
+    qtt = 0
+    # Cria uma váriavel do mapa, se não existir locais, o mapa carrega sem pontos
     new_map = ''
+    # Define o index sem tabela, a tabela será verdadeira quando existir um CEP digitado
     table = False
+    # Receberá o CEP da URI
     cep = ''
     # Verifica se existe um CEP digitado, se sim, busca os locais próximos no banco de dados
     # Se não, apresenta todos os locais
-    user = temp_user()
-    # Se existir um CEP digitado, também cria uma tabela para apresentar os locais
-    if user:
+    result = temp_user()
+    # Se existir um CEP digitado 
+    if result:
+        # Cria uma tabela para apresentar os locais
         table = True
+        # Recebe o CEP da url, utilizado para refresh
         cep = str(user['cep'])
+        # Recebe a quantidade de locais a ser pesquisado
+        qtt = int(request. args.get('qtt'))
     # Busca e retorna os locais
-    places = find_places(user)
-    # Verifica a quantidade de locais
-    num_places = len(places)
+    places = find_places(result, qtt)
     # Se existir locais, carrega o mapa
-    if num_places:
+    if len(places):
         # Recebe as coordenadas e nomes dos pontos que serão colocados no mapa
         new_map = maps(places)
     # Retorna a lista com os locais e cria o mapa
     return render_template('index.html', titulo='Mapa Cultural', subtitulo='São Paulo',
-        places=places, table=table, movingmap=new_map, num_places=num_places, cep=cep)
+        places=places, table=table, movingmap=new_map, cep=cep)
 
 # Retorna o endereço do CEP inserido pelo usuário
 def temp_user():
