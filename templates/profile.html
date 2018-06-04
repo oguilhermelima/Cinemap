@@ -30,11 +30,27 @@
                     <i class="ion-chevron-right"></i>
                 </a>
                 {# Botão Excluir perfil #}
-                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.remove_user') }}">
+                <a class="btn btn-reverse margin-b-30" data-toggle="collapse" href="#collapseremove"  aria-expanded="false" aria-controls="collapseExample">
                     <b>EXCLUIR PERFIL</b>
                     <i class="ion-chevron-right"></i>
                     <i class="ion-chevron-right"></i>
                 </a>
+                    {# Collapse - Mostra confirmação #}
+                    <div class="collapse" id="collapseremove">
+                      <div style="background-color: rgba(0, 0, 0, 0.6);" class="card card-body">
+                        Deseja realmente excluir o perfil?
+                        <center>
+                        {# Botão Excluir perfil #}
+                        <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.remove_user') }}">
+                            <b>SIM</b>
+                        </a>
+                        {# Botão não excluir perfil #}
+                        <a class="btn btn-reverse margin-b-30" data-toggle="collapse" href="#collapseremove"  aria-expanded="false" aria-controls="collapseExample">
+                            <b>NÃO</b>
+                        </a>
+                        </center>
+                      </div>
+                    </div>
             </div>
         </div>
     </div>
