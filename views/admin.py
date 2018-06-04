@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, flash, render_template, url_for
 from .db_places import insert_places, find_by_id, find_byid, find_places, edit_place, remove_place
-from .validations import is_adm
+from .validations import is_adm, check_cep
 from .db_users import return_users, delete_user
 from .maps import coordenates
 from .places import Places
@@ -52,6 +52,9 @@ def create_place():
         model = number + street + neighbor + city + state
         # Gera as coordenadas 
         address = coordenates(model)
+        # Verifica se o CEP do submit é real, ou se foi alterado depois do retorno de pesquisa
+        if not check_cep(cep):
+            return redirect(url_for('administration.new_place'))
         # Cria uma instancia do tipo Place, que armazena um indereço completo + icone  
         place = Places(id_place, cep, name, street, number, neighbor, city, state,
                        address.latitude, address.longitude, None)
@@ -104,6 +107,9 @@ def submit_edit():
         state = request. form['estado']
         # Cria um endereço unico com os dados do form para busca das coordenadas
         model = number + street + neighbor + city + state
+        # Verifica se o CEP do submit é real, ou se foi alterado depois do retorno de pesquisa
+        if not check_cep(cep):
+            return redirect(url_for('administration.edit'))
         # Gera as coordenadas 
         address = coordenates(model)
         # Recebe o ID do local
