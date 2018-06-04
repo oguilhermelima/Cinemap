@@ -96,20 +96,24 @@
                 <tbody>
                 {# Cria uma linha para cada local no banco de dados #}
                 {% for place in places %}
-                    <tr>
-                        <td>{{ place.name }}</td>
-                        <td>{{ place.street }}</td>
-                        <td>{{ place.number }}</td>
-                        <td>{{ place.neighbor }}</td>
-                        <td>{{ place.city }}</td>
-                        {# Se existir, usuário logado, permite salvar o local #}
-                        {% if current_user.name and place.id!=0 %}
-                            {# Botão salvar #}
-                            <td style="background-color:#120F22">
-                                <a class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep) }}">Salvar
-                            </td>
-                        {% endif %}
-                    </tr>
+                    {# O local temporário leva o ID zero. Quando fizer uma pesquisa com CEP
+                        o local temporário não aparecerá na tabela #}
+                    {% if place.id!=0 %}
+                        <tr>
+                            <td>{{ place.name }}</td>
+                            <td>{{ place.street }}</td>
+                            <td>{{ place.number }}</td>
+                            <td>{{ place.neighbor }}</td>
+                            <td>{{ place.city }}</td>
+                            {# Se existir, usuário logado, permite salvar o local #}
+                            {% if current_user.name %}
+                                {# Botão salvar #}
+                                <td style="background-color:#120F22">
+                                    <a class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep) }}">Salvar
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}    
                 {% endfor %}
                 </tbody>
             </table>     
