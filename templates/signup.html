@@ -15,17 +15,17 @@
         {# Label e input do nome #}
         <div class="wrap-input100 validate-input bg1" data-validate="Nome inválido">
           <span class="label-input100">NOME</span>
-          <input class="input100" type="text" id="nome" name="nome" placeholder="Digite seu nome">
+          <input class="input100" value="{{name}}" type="text" id="nome" name="nome" placeholder="Digite seu nome">
         </div>
         {# Label e input do email #}
         <div class="wrap-input100 validate-input bg1" data-validate="E-mail inválido">
           <span class="label-input100">E-MAIL</span>
-          <input class="input100" type="email" id="email" name="email" placeholder="Digite um email do tipo example@example.com">
+          <input class="input100" value="{{email}}" type="email" id="email" name="email" placeholder="Digite um email válido do tipo example@example.com">
         </div>
         {# Label e input do usuario #}
         <div class="wrap-input100 validate-input bg1" data-validate="Username inválido">
           <span class="label-input100">USUÁRIO</span>
-          <input class="input100" type="text" id="usuario" name="usuario" placeholder="Digite um username">
+          <input class="input100" value="{{username}}" type="text" id="usuario" name="usuario" placeholder="Digite um username com no mínimo 5 caracteres">
         </div>
         {# Label e input da senha #}
         <div class="wrap-input100" data-validate="Senha inválida">
@@ -39,6 +39,11 @@
           <p id="capital" class="invalid">Pelo menos uma letra <b>maiuscula</b></p>
           <p id="number" class="invalid">Pelo menos um <b>número</b></p>
           <p id="length" class="invalid">No mínimo <b>8 caracteres</b></p>
+        </div>
+        {# Label e input da confirmação de senha #}
+        <div class="wrap-input100" data-validate="Senha inválida">
+          <span class="label-input100">CONFIRME A SENHA</span>
+          <input class="input100" type="password" id="password" name="password" placeholder="Digite novamente a senha">
         </div>
         {# col-md-12 col-lg-12 col-xl-12 #}
         <div class="col-md-12 col-lg-12 col-xl-12">
