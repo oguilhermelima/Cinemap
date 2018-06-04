@@ -70,7 +70,6 @@ button{ outline: 0; border: 0; background: none; cursor: pointer; }
 
 b.max-bold{ font-weight: 700; }
 
-
 /* ---------------------------------
 2. COMMONS FOR PAGE DESIGN
 --------------------------------- */
@@ -180,10 +179,12 @@ b.max-bold{ font-weight: 700; }
 	width:100%;
 	font-size: 1em;
 	color: white;}
-/* SITE NAVIGATION */
+
 .td-remove{
 	background-color: #d60000;
 	color: white;
+
+/* SITE NAVIGATION */
 }
 .site-navigation{ position: fixed; top: 50%; right: 20px; z-index: 100;
 	transform: translateY(-50%); }
@@ -527,6 +528,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 		position: left;
 		font-size: 1.5em;
 	}
+
 	/* ---------------------------------
 	7. FOOTER
 	--------------------------------- */
@@ -567,3 +569,4 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 @media only screen and (max-width: 290px) {	
 	
 }
+
