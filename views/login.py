@@ -2,7 +2,7 @@ from werkzeug.security import generate_password_hash as p_hash, check_password_h
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, current_user
 from .db_users import add_user, find_user, find_email
-from .validations import user_exists, email_exists, active_user
+from .validations import validate_user, active_user
 from .users import User
 
 log_in = Blueprint('signin', __name__)
@@ -23,13 +23,16 @@ def new_user():
     # Recebe os dados do form
     name =  request.form['nome']
     username =  request.form['usuario']
-    password = p_hash(request.form['psw'], method='sha256')# Faz Hash da senha
+    password = request.form['psw']
+    confirm_password = request.form['password']
     email = request.form['email']
-
     # Verifica se o usuario e email já constam no banco de dados
-    if (user_exists(username) and email_exists(email))or user_exists(username) or email_exists(email):
-        return redirect(url_for('signin.register'))
-
+    if not validate_user(username, email, password, confirm_password):
+        # Se existir, retorna para a página de registro
+        return render_template('signup.html', titulo='Sign up', imagem='imgs/signinup.jpg', 
+            username=username, email=email, name=name)
+    # Faz o hash da senha
+    password = p_hash(request.form['psw'], method='sha256') # Faz Hash da senha
     # Cria uma instancia do tipo User    
     user = User(username, name, password, email, "user")
     # Armazena no MongoDB
@@ -69,13 +72,13 @@ def autenticate():
                 user_database['email'], 'user')
             # Faz o Login do usuário
             login_user(user_obj)
-            # Redireciona para o index
+            # Se a senha e usuário estiverem corretos, redireciona para o index
             return redirect(url_for('index.index'))
         else:
             flash("Senha inválida")        
     else:
         flash("Username inválido")
-    # Se a senha e usuário estiverem corretos, redireciona para a página de login        
+    # Se a senha e usuário não estiverem corretos, redireciona para a página de login        
     return redirect(url_for('signin.login'))
 
 # Rota de logout
