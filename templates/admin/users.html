@@ -22,12 +22,37 @@
             <tr>
                 <td>{{ user.name }}</td>
                 <td>{{ user._id }}</td>
-                {# Botão remove #}
                 <td>{{ user.email }}</td>
-                <td style="background-color:#d60000">
-                    <a class="btn-remove" href="{{ url_for('administration.remove_user', id=user._id) }}">Remover
+                {# Botão remover #}
+                <td class="td-remove">
+                    <a data-toggle="modal" data-target="#{{user._id}}" class="btn-remove">Remover</a>
                 </td>
             </tr>
+            {# Popup remover usuario #}
+            <div class="modal fade" id="{{user._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                {# Topo da caixa - Título #}
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
+                            {# Botão fechar #}
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {# Conteúdo caixa #}
+                        <div class="modal-body">Realmente deseja remover este usuário?</div>
+                        {# Footer caixa #}
+                        <div class="modal-footer">
+                            {# Botão confirmar #}
+                            <a href="{{ url_for('administration.remove_user', id=user._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                            </a>
+                            {# Botão negar #}
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         {% endfor %}
         </tbody>
       </table>    
