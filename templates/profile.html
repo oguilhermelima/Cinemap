@@ -30,27 +30,36 @@
                     <i class="ion-chevron-right"></i>
                 </a>
                 {# Botão Excluir perfil #}
-                <a class="btn btn-reverse margin-b-30" data-toggle="collapse" href="#collapseremove"  aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-reverse margin-b-30" data-toggle="modal" data-target="#modalremove">
                     <b>EXCLUIR PERFIL</b>
                     <i class="ion-chevron-right"></i>
                     <i class="ion-chevron-right"></i>
                 </a>
-                    {# Collapse - Mostra confirmação #}
-                    <div class="collapse" id="collapseremove">
-                      <div style="background-color: rgba(0, 0, 0, 0.6);" class="card card-body">
-                        Deseja realmente excluir o perfil?
-                        <center>
-                        {# Botão Excluir perfil #}
-                        <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.remove_user') }}">
-                            <b>SIM</b>
-                        </a>
-                        {# Botão não excluir perfil #}
-                        <a class="btn btn-reverse margin-b-30" data-toggle="collapse" href="#collapseremove"  aria-expanded="false" aria-controls="collapseExample">
-                            <b>NÃO</b>
-                        </a>
-                        </center>
-                      </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{# Popup remover usuário #}
+<div class="modal fade" id="modalremove" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    {# Topo da caixa - Título #}
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
+                {# Botão fechar #}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {# Conteúdo caixa #}
+            <div class="modal-body">Realmente deseja remover este usuário?</div>
+            {# Footer caixa #}
+            <div class="modal-footer">
+                {# Botão confirmar #}
+                <a href="{{ url_for('profile.remove_user') }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                </a>
+                {# Botão negar #}
+                <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
             </div>
         </div>
     </div>
@@ -94,8 +103,34 @@
                             <td>{{ place.neighbor }}</td>
                             <td>{{ place.city }}</td>
                             {# Botão remover #}
-                            <td style="background-color:#d60000"><a class="btn-remove" href="{{ url_for('profile.delete_place', id=place._id) }}">Remover</a></td>
+                            <td class="td-remove"><a data-toggle="modal" data-target="#{{place._id}}" class="btn-remove">Remover</a>
+                            </td>
                         </tr>
+                        {# Popup remover local #}
+                        <div class="modal fade" id="{{place._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            {# Topo da caixa - Título #}
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
+                                        {# Botão fechar #}
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    {# Conteúdo caixa #}
+                                    <div class="modal-body">Realmente deseja remover este local?</div>
+                                    {# Footer caixa #}
+                                    <div class="modal-footer">
+                                        {# Botão confirmar #}
+                                        <a href="{{ url_for('profile.delete_place', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                                        </a>
+                                        {# Botão negar #}
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     {% endfor %}
                 </tbody>
           </table>    
