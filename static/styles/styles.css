@@ -180,9 +180,11 @@ b.max-bold{ font-weight: 700; }
 	width:100%;
 	font-size: 1em;
 	color: white;}
-
 /* SITE NAVIGATION */
-
+.td-remove{
+	background-color: #d60000;
+	color: white;
+}
 .site-navigation{ position: fixed; top: 50%; right: 20px; z-index: 100;
 	transform: translateY(-50%); }
 
