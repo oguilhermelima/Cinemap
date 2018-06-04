@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, request, flash, url_for, render_template
 from flask_login import login_required, current_user, logout_user
 from .db_user_places import add_user_places, find_user_places, remove_user_place
-from .validations import validate_edit, new_password
+from .validations import validate_edit, new_password, validate_password
 from .db_users import delete_user
 from .db_places import find_by_id
 from .places import Places
@@ -47,7 +47,7 @@ def finish_edit():
     try:
         # Tenta validar os dados e retorna verdadeiro ou falso
         result = validate_edit(username, new_username, email, new_email, name)
-        # Se conseguiu validar, redireciona para o perfil
+        # Se conseguiu validar, redireciona para o perfil com mensagem de sucesso!
         if result:
             return redirect(url_for('profile.profile'))
         # Se não, retorna para a pagina de editar com as mensagens de erro
@@ -68,7 +68,12 @@ def edit_password():
 def finish_password():
     # Recebe a senha digitada no form
     password = request. form["psw"]
-    # Valida a senha
+    confirm_password = request. form["password"]
+    # Verifica se as senhas são iguais
+    if not validate_password(password, confirm_password):
+        # Se não for, apresenta uma mensagem e atualiza a página
+        return redirect(url_for('profile.edit_password'))
+    # Faz hash da senha e armazena no banco
     new_password(password)
     return redirect(url_for('profile.profile'))
 
@@ -114,6 +119,8 @@ def delete_place(id):
     try:
         # Remove o local pelo ObjectID
         remove_user_place(id)
+        # Exibe mensagem de sucesso
+        flash("Local removido com sucesso!")
     except:
         flash("Não foi possível remover o local")
     return redirect(url_for('profile.profile'))
