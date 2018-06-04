@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request, flash
-import pycep_correios # Api correios que recebe o CEP e retorna o Endereço
+# Api correios que recebe o CEP e retorna o Endereço
+from pycep_correios import consultar_cep 
 from .db_places import find_places
 from .maps import maps, coordenates
 from .places import Places
@@ -38,7 +39,7 @@ def temp_user():
     try:
     	# Tenta consultar o CEP
     	# Retorna um endereço completo (Rua, bairro, cidade, estado e o próprio CEP)
-    	cep = pycep_correios.consultar_cep(cep_uri)
+    	cep = consultar_cep(cep_uri)
     except:
         if cep_uri:
             flash("CEP incorreto. Não foi possível encontra-lo")
