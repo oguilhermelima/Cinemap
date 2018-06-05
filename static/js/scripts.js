@@ -406,17 +406,3 @@ function enableSwiper(){
 		
 	}
 }
-
-// Muda o fundo no header do collapse
-$(document).ready(function() {
-	var array = document.getElementsByClassName('btn-place')
-		// Mostra o collapse com nova cor
-		$('.collapse').on('shown.bs.collapse', function () {
-		    $(this).prev().addClass('card-header-active');
-		});
-		// Volta ao padrão
-		$('.collapse').on('hidden.bs.collapse', function () {
-		    $(this).prev().removeClass('card-header-active');
-
-		});
-});

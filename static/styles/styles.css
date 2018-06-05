@@ -424,15 +424,18 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 
 .card-header{
 	background-color: white;
+	border-bottom-color: white;
 	border-radius: .25rem;}
 
 .card-header:hover{
 	background-color: rgb(181, 18, 27);
 	color:white;}
 
-.card-header-active{
+.card-header[aria-expanded="true"], .card-header[aria-expanded="true"] a:after{
 	background-color: rgb(181, 18, 27);
-	color:white;}
+	color:white;
+	content: "\f107";
+}
 
 .btn-link {
 	font-size: 0.9em;
@@ -446,8 +449,6 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
     content: "\f105";    
     float: right;}
 
-.accordion-toggle[aria-expanded="true"]::after {
-	content: "\f107";}
 
 #card-body{
 	margin-left: 5px;
