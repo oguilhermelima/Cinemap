@@ -36,7 +36,7 @@ def index():
         new_map = maps(places)
     # Retorna a lista com os locais e cria o mapa
     return render_template('index.html', titulo='Mapa Cultural', subtitulo='São Paulo',
-        places=places, table=table, movingmap=new_map, cep=cep)
+        places=places, table=table, movingmap=new_map, cep=cep, qtt=qtt)
 
 # Retorna o endereço do CEP inserido pelo usuário
 def temp_user():

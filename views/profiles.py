@@ -96,9 +96,9 @@ def remove_user():
         return redirect(url_for('profile.profile'))
 
 # Rota que salva local como favorito do usuário
-@profiles.route('/salvarlocal<string:id>/<string:cep>')
+@profiles.route('/salvarlocal/<string:id>/<int:qtt>/<string:cep>')
 @login_required
-def save_place(id, cep):
+def save_place(id, qtt, cep):
     try:
         # Busca todos os dados do local pelo id
         result = find_by_id(id)
@@ -110,7 +110,7 @@ def save_place(id, cep):
         flash("Local salvo com sucesso!")
     except:
     	flash("Não foi possível adicionar local")
-    return redirect(url_for('index.index', cep=cep, submit="locais"))
+    return redirect(url_for('index.index', qtt=qtt, cep=cep, submit="locais"))
 
 # Rota que remove o local salvo pelo usuário
 @profiles.route('/removerlocal<string:id>')

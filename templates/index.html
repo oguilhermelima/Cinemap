@@ -119,8 +119,8 @@
                             {# Se existir, usuário logado, permite salvar o local #}
                             {% if current_user.name %}
                                 {# Botão salvar #}
-                                <td style="background-color:#120F22">
-                                    <a class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep) }}">Salvar
+                                <td style="background-color:#28a745">
+                                    <a title="Salvar" class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep, qtt=qtt) }}"><i class="fa fa-save"></i></a>
                                 </td>
                             {% endif %}
                         </tr>
