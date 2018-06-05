@@ -25,7 +25,7 @@ def index():
         # Cria uma tabela para apresentar os locais
         table = True
         # Recebe o CEP da url, utilizado para refresh
-        cep = str(user['cep'])
+        cep = str(result['cep'])
         # Recebe a quantidade de locais a ser pesquisado
         qtt = int(request. args.get('qtt'))
     # Busca e retorna os locais
@@ -40,6 +40,7 @@ def index():
 
 # Retorna o endereço do CEP inserido pelo usuário
 def temp_user():
+    # Se não existir CEP, retorna uma string vazia
     place = ''
     # Recebe o valor da variavel cep da uri
     cep_uri = request. args.get('cep')
