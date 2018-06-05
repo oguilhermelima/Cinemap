@@ -595,7 +595,8 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	}
 	.btn-link {
 		padding-left: 0px;
-		font-size: 0.7em;
+		padding-right: 0px;
+		font-size: 0.55em;
 		font-weight: bold;
 		text-decoration: none;
 		color:black;
