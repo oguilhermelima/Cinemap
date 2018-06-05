@@ -19,7 +19,8 @@
 	8. COUNTER SECTION
 	9. FOOTER
 	10. ICON BOX STYLING
-	11. RESPONSIVE
+	11. COLLAPSE
+	12. RESPONSIVE
 ====================================================
 
 /* ---------------------------------
@@ -165,6 +166,18 @@ b.max-bold{ font-weight: 700; }
 .btn-fill:hover{ color: #000; }
 
 .btn-fill:hover:after{ opacity: 0; }
+
+/* BUTTON RED */
+
+.btn-red{ border: 2px solid rgb(181, 18, 27); color: #fff;
+	border-image: rgb(181, 18, 27); border-image-slice: 1; }
+
+.btn-red:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	opacity: 1; transition: inherit; background: rgb(181, 18, 27); }
+
+.btn-red:hover{ color: #000; }
+
+.btn-red:hover:after{ opacity: 0; }
 
 /* BUTTON SAVE */
 
@@ -371,7 +384,8 @@ footer .footer-section .title{ position: relative; }
 footer .footer-section .title:after{ content:''; position: absolute; top: 5px; left: -20px; height: 12px; 
 	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
 
-}/* ---------------------------------
+}
+/* ---------------------------------
 10. ICON BOX STYLING
 --------------------------------- */
 .icnbox:after, footer .footer-section .title:after {
@@ -395,6 +409,50 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 
 .icnbox.active .icon,
 .icnbox:hover .icon{ filter: brightness(0) invert(1); }
+
+/* ---------------------------------
+11. COLLAPSE
+--------------------------------- */
+.collapse-style{
+	margin-top: 10px;}
+
+.card{
+	background-color: white;
+	border: 1px solid rgb(181, 18, 27);
+	border-radius: .25rem;
+	margin-top: 10px;}
+
+.card-header{
+	background-color: white;
+	border-radius: .25rem;}
+
+.card-header:hover{
+	background-color: rgb(181, 18, 27);
+	color:white;}
+
+.card-header-active{
+	background-color: rgb(181, 18, 27);
+	color:white;}
+
+.btn-link {
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+	color:black;
+    background-color: transparent;}
+
+.accordion-toggle:after {
+    font-family: 'FontAwesome';
+    content: "\f105";    
+    float: right;}
+
+.accordion-toggle[aria-expanded="true"]::after {
+	content: "\f107";}
+
+#card-body{
+	margin-left: 5px;
+	font-size: 1em;
+	color: black;}
 
 /* --------------------------------------
 11. RESPONSIVE
@@ -530,7 +588,22 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	}
 
 	/* ---------------------------------
-	7. FOOTER
+	7. COLLAPSE
+	--------------------------------- */
+	.collapse-style{
+		padding-top: 3px;
+	}
+	.btn-link {
+		padding-left: 0px;
+		font-size: 0.7em;
+		font-weight: bold;
+		text-decoration: none;
+		color:black;
+	    background-color: transparent;
+	}
+
+	/* ---------------------------------
+	8. FOOTER
 	--------------------------------- */
 
 	footer{ padding: 50px 0px 10px; }	
@@ -569,4 +642,3 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 @media only screen and (max-width: 290px) {	
 	
 }
-

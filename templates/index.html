@@ -87,47 +87,50 @@
         </form>
         {# Carrega o mapa com as coordenadas #}
         {{movingmap.js}}<p>{{movingmap.html}}</p>
-        {# Se existir alguma pesquisa de CEP, cria uma tabela #}
+        {# Se existir alguma pesquisa de CEP, cria uma lista #}
         {% if table %}
-           <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
-                {# Define o titulo de cada coluna #}
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Rua</th>
-                        <th>N°</th>
-                        <th>Bairro</th>
-                        <th>Cidade</th>
-                        {# Se existir, usuário logado, permite salvar local #}
-                        {% if current_user.name %}
-                        <th></th>
-                        {% endif %}
-                    </tr>
-                </thead>
-                <tbody>
-                {# Cria uma linha para cada local no banco de dados #}
+            {# Cria uma lista de collapses com 10px de margem no topo#}
+            <div class="collapse-style" id="accordion">
+                {# Para cada lugar no array de lugares, cria um collapse #}
                 {% for place in places %}
-                    {# O local temporário leva o ID zero. Quando fizer uma pesquisa com CEP
-                        o local temporário não aparecerá na tabela #}
-                    {% if place.id!=0 %}
-                        <tr>
-                            <td>{{ place.name }}</td>
-                            <td>{{ place.street }}</td>
-                            <td>{{ place.number }}</td>
-                            <td>{{ place.neighbor }}</td>
-                            <td>{{ place.city }}</td>
-                            {# Se existir, usuário logado, permite salvar o local #}
-                            {% if current_user.name %}
-                                {# Botão salvar #}
-                                <td style="background-color:#28a745">
-                                    <a title="Salvar" class="btn-save" href="{{ url_for('profile.save_place', id=place._id, cep=cep, qtt=qtt) }}"><i class="fa fa-save"></i></a>
-                                </td>
-                            {% endif %}
-                        </tr>
-                    {% endif %}    
+                {# Só não cria para o id 0. O ID 0 é o ID do local temporário (CEP DIGITADO) #}
+                {% if place.id!=0 %}
+                    {# FUNDO DO COLLAPSE #}
+                    <div class="card">
+                        {# TOPO com ID unica. ID é usada como referencia para abrir ou fechar o collapse #}
+                        <div class="card-header" id="{{ loop.index }}">
+                            <h5 class="mb-0">
+                                {# Botão com referencia ao ID do topo e do body do collapse #}
+                                <a id='btn-place' class="accordion-toggle btn btn-link btn-lg btn-block text-left collapsed" data-toggle="collapse" data-target="#{{ place._id }}" aria-expanded="false" aria-controls="{{ place._id }}">
+                                    {# Título #}
+                                    {{place.name}} 
+                                </a>
+                            </h5>
+                        </div>
+                        {# Body com id unica #}
+                        <div id="{{ place._id }}" class="collapse" aria-labelledby="{{ loop.index }}" data-parent="#accordion">
+                            {# Texto com o endereço #}
+                            <div class="card-body">
+                                <p id="card-body">
+                                {{place.street}}, <b>N° </b>{{place.number}} - {{place.neighbor}} - {{place.city}}, {{place.state}} - <b>CEP</b> {{place.cep}}
+                                {#<br></br>
+                                <b>Preço médio do ingresso:</b> INTEIRO:#}
+                                <br></br>
+                                </p>
+                                {# Botão salvar local #}
+                                <a class="btn btn-red margin-b-30" href="{{ url_for('profile.save_place', id=place._id, cep=cep, qtt=qtt) }}">
+                                    <i class="fa fa-save"></i>
+                                    <b>SALVAR</b>
+                                    <i class="ion-chevron-right"></i>
+                                    <i class="ion-chevron-right"></i>
+                                </a>         
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 {% endfor %}
-                </tbody>
-            </table>     
+            </div>
+
         {% endif %}
     </div>
 </section>
