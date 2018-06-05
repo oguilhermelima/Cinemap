@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash
-from flask import flash, request
+from flask import flash
 from flask_login import current_user
 from pycep_correios import consultar_cep # Api correios que recebe o CEP e retorna o Endereço
 from .db_users import edit_user, find_user, find_email

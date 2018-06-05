@@ -118,7 +118,7 @@ def save_place(id, qtt, cep):
 def delete_place(id):
     try:
         # Remove o local pelo ObjectID
-        remove_user_place(id)
+        remove_user_place(id) 
         # Exibe mensagem de sucesso
         flash("Local removido com sucesso!")
     except:

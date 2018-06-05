@@ -1,5 +1,4 @@
-from flask import Blueprint
-from .app import app, login_manager
+from .app import app
 
 # Carrega todas as rotas do blueprint
 def all_routes(app):

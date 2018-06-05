@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, flash
+from flask import Blueprint, render_template, request, flash
 # Api correios que recebe o CEP e retorna o Endereço
 from pycep_correios import consultar_cep 
 from .db_places import find_places

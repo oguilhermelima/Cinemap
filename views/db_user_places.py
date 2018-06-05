@@ -1,5 +1,6 @@
 from .collections import user_places_collection as up_collection
 from bson.objectid import ObjectId
+from flask import flash
 
 # Create
 # Insere locais na collection user_places 

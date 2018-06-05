@@ -17,7 +17,6 @@ def add_user(user):
 def return_users():
     # Carrega a collection de usuários
     collection = user_collection()
-    users = []
     try:
         # Busca o usuário e retorna todos os dados 
         user = collection.find().sort('_id')

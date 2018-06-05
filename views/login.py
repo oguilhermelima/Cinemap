@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash as p_hash, check_password_hash as c_hash
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from flask_login import login_user, logout_user, current_user
-from .db_users import add_user, find_user, find_email
+from flask_login import login_user, logout_user
+from .db_users import add_user, find_user
 from .validations import validate_user, active_user
 from .users import User
 

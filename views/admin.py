@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, flash, render_template, url_for
-from .db_places import insert_places, find_by_id, find_byid, find_places, edit_place, remove_place
+from .db_places import insert_places, find_by_id, find_places, edit_place, remove_place
 from .validations import is_adm, check_cep
 from .db_users import return_users, delete_user
 from .maps import coordenates
@@ -131,7 +131,7 @@ def submit_edit():
 def remove(id):
     try:
         # Remove o usuário pelo ID
-        place = remove_place(id)
+        remove_place(id)
         flash("Removido com sucesso")
     except:
         flash("Não foi possível remover local")
