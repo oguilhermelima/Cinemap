@@ -81,60 +81,70 @@
             {# Carrega o mapa com as coordenadas #}
             {{movingmap.js}}<p>{{movingmap.html}}</p>
             {# Define o estilo da tabela, como responsiva, com bordar e hover #}
-            <table class="table w-100 d-block d-md-table table-responsive table-bordered table-hover">
-            {# Define o titulo de cada coluna #}
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Rua</th>
-                        <th>N°</th>
-                        <th>Bairro</th>
-                        <th>Cidade</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {# Cria uma linha para cada local no banco de dados #}
-                    {% for place in places %}
-                        <tr>
-                            <td>{{ place.name }}</td>
-                            <td>{{ place.street }}</td>
-                            <td>{{ place.number }}</td>
-                            <td>{{ place.neighbor }}</td>
-                            <td>{{ place.city }}</td>
-                            {# Botão remover #}
-                            <td class="td-remove">
-                                <a data-toggle="modal" data-target="#{{place._id}}" class="btn-remove"><i class="fa fa-remove"></i></a>
-                            </td>
-                        </tr>
-                        {# Popup remover local #}
-                        <div class="modal fade" id="{{place._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            {# Topo da caixa - Título #}
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
-                                        {# Botão fechar #}
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    {# Conteúdo caixa #}
-                                    <div class="modal-body">Realmente deseja remover este local?</div>
-                                    {# Footer caixa #}
-                                    <div class="modal-footer">
-                                        {# Botão confirmar #}
-                                        <a href="{{ url_for('profile.delete_place', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
-                                        </a>
-                                        {# Botão negar #}
-                                        <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
-                                    </div>
-                                </div>
+            {# Cria uma lista de collapses com 10px de margem no topo#}
+            <div class="collapse-style" id="accordion">
+            {# Para cada lugar no array de lugares, cria um collapse #}
+            {% for place in places %}
+                {# FUNDO DO COLLAPSE #}
+                <div class="card">
+                    {#  Botão com referencia ao ID do topo e do body do collapse  #}
+                    <div class="card-header collapsed"  data-toggle="collapse" data-target="#{{ place._id }}" aria-expanded="false" aria-controls="{{ place._id }}" id="{{ loop.index }}">
+                        <h5 class="mb-0">
+                            {# Titulo com seta #}
+                            <a class="accordion-toggle btn btn-link btn-lg btn-block text-left">
+                                {{place.name}} 
+                            </a>
+                        </h5>
+                    </div>
+                    {# Body com id unica #}
+                    <div id="{{ place._id }}" class="collapse" aria-labelledby="{{ loop.index }}">
+                        {# Texto com o endereço #}
+                        <div class="card-body">
+                            <p id="card-body">
+                                {{place.street}}, <b>N° </b>{{place.number}} - {{place.neighbor}} - {{place.city}}, {{place.state}} - <b>CEP</b> {{place.cep}}
+                            </p>
+                            {# Quebra de linha #}
+                            <br></br>  
+                            {# Se existir, usuário logado, permite salvar o local #}
+                            {% if current_user.name %}
+                            {# Botão salvar local #}
+                            <a id="btn-color" class="btn btn-red margin-b-30" data-toggle="modal" data-target="#{{place._id|string}}1" >
+                                <i class="fa fa-save"></i>
+                                <b>REMOVER</b>
+                                <i class="ion-chevron-right"></i>
+                                <i class="ion-chevron-right"></i>
+                            </a>         
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {# Popup remover local #}
+                <div class="modal fade" id="{{place._id|string}}1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    {# Topo da caixa - Título #}
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Aviso</h5>
+                                {# Botão fechar #}
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            {# Conteúdo caixa #}
+                            <div class="modal-body">Realmente deseja remover este local?</div>
+                            {# Footer caixa #}
+                            <div class="modal-footer">
+                                {# Botão confirmar #}
+                                <a href="{{ url_for('profile.delete_place', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                                </a>
+                                {# Botão negar #}
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
                             </div>
                         </div>
-                    {% endfor %}
-                </tbody>
-          </table>    
+                    </div>
+                </div>
+                {% endfor %}
+            </div>  
         </div>
     </section>
 {# Se não existir locais, apresenta uma mensagem #}
@@ -152,3 +162,6 @@
 {% endif %}
 
 {% endblock content %}
+
+
+ 

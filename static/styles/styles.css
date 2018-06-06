@@ -168,6 +168,13 @@ b.max-bold{ font-weight: 700; }
 .btn-fill:hover:after{ opacity: 0; }
 
 /* BUTTON RED */
+#btn-color{
+	color: white;
+	font-color: white;}
+
+#btn-color:hover{
+	color: black;
+	font-color: black;}
 
 .btn-red{ border: 2px solid rgb(181, 18, 27); color: #fff;
 	border-image: rgb(181, 18, 27); border-image-slice: 1; }
