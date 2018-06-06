@@ -69,7 +69,7 @@
 {# Sessão com o título #}
 <div class="social-section" id="next">
     <div class="container">
-    	<h4><b>Locais salvos</b></h4>
+    	<h4><b>Cinemas salvos</b></h4>
     </div>
 </div>
 
@@ -107,7 +107,7 @@
                             <br></br>  
                             {# Se existir, usuário logado, permite salvar o local #}
                             {% if current_user.name %}
-                            {# Botão salvar local #}
+                            {# Botão remover local #}
                             <a id="btn-color" class="btn btn-red margin-b-30" data-toggle="modal" data-target="#{{place._id|string}}1" >
                                 <i class="fa fa-save"></i>
                                 <b>REMOVER</b>
@@ -154,7 +154,7 @@
             {# Mensagem locais #}
             <div class="about">
                 <h3>
-                    <b>Nenhum local salvo. Para salvar locais, utilize o mapa na página inicial</b>
+                    <b>Nenhum cinema salvo. Para salvar, utilize a pesquisa na página inicial</b>
                 </h3>
             </div>
         </div>
