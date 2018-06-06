@@ -179,6 +179,18 @@ b.max-bold{ font-weight: 700; }
 
 .btn-red:hover:after{ opacity: 0; }
 
+/* BUTTON BLUE */
+
+.btn-blue{ border: 2px solid rgb(0, 123, 255); color: #fff;
+	border-image: rgb(0, 123, 255); border-image-slice: 1; }
+
+.btn-blue:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
+	opacity: 1; transition: inherit; background: rgb(0, 123, 255); }
+
+.btn-blue:hover{ color: #000; }
+
+.btn-blue:hover:after{ opacity: 0; }
+
 /* BUTTON SAVE */
 
 .btn-save, .btn-save:visited, .btn-save:link, .btn-save:hover{
@@ -449,12 +461,9 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
     content: "\f105";    
     float: right;}
 
-
 #card-body{
-	margin-left: 5px;
 	font-size: 1em;
 	color: black;}
-
 /* --------------------------------------
 11. RESPONSIVE
 -----------------------------------------*/

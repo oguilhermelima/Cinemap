@@ -111,13 +111,19 @@
                             {# Texto com o endereço #}
                             <div class="card-body">
                                 <p id="card-body">
-                                {{place.street}}, <b>N° </b>{{place.number}} - {{place.neighbor}} - {{place.city}}, {{place.state}} - <b>CEP</b> {{place.cep}}
-                                {#<br></br>
-                                <b>Preço médio do ingresso:</b> INTEIRO:#}
+                                    {{place.street}}, <b>N° </b>{{place.number}} - {{place.neighbor}} - {{place.city}}, {{place.state}} - <b>CEP</b> {{place.cep}}
                                 </p>
+                                {# Quebra de linha #}
+                                <br></br>
+                                {# Botão Como chegar#}
+                                <a class="btn btn-blue margin-b-30" href="https://www.google.com/maps/dir/{{user.lat}}{{user.lng}}/{{place.lat}}{{place.lng}}/@{{place.lat}}{{place.lng}}" target="_blank">
+                                    <i class="fa fa-search"></i>
+                                    <b>Como chegar</b>
+                                    <i class="ion-chevron-right"></i>
+                                    <i class="ion-chevron-right"></i>
+                                </a>      
                                 {# Se existir, usuário logado, permite salvar o local #}
                                 {% if current_user.name %}
-                                <br></br>
                                 {# Botão salvar local #}
                                 <a class="btn btn-red margin-b-30" href="{{ url_for('profile.save_place', id=place._id, cep=cep, qtt=qtt) }}">
                                     <i class="fa fa-save"></i>
