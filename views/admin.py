@@ -72,7 +72,7 @@ def listplace():
     # Verifica se o usuário é adm, se não for retorna 404
     if is_adm():
         # Busca os locais no banco de dados
-        places = find_places(0)
+        places = find_places(0,0)
         return render_template('admin/list_places.html', titulo="Editar locais", places=places, 
             imagem='imgs/newplace.jpg')
     else:
