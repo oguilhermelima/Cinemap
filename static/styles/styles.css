@@ -249,21 +249,6 @@ b.max-bold{ font-weight: 700; }
 
 .site-navigation > li > a:hover > .tool-tip{ opacity: 1; right: 100%; transform: scale(1); }
 
-/* GRADIENT ICON  */
-
-.icon-gradient{ display: inline-block; height: 50px; width: 50px; background-size: cover; 
-	background-image: url(../imgs/gradinet-icons.png); }
-
-.icon-gradient-2{ display: inline-block; height: 50px; width: 50px; background-size: cover; 
-	background-image: url(../imgs/gradinet-icons-2.png); }
-
-.icon-gradient.icon-gradient-event{ background-position: 0; }
-.icon-gradient.icon-gradient-bottle{ background-position: 150px ; }
-
-.icon-gradient-2.icon-gradient-place{ background-position: 0px; }
-.icon-gradient-2.icon-gradient-user{ background-position: -51px; }
-.icon-gradient-2.icon-gradient-add{ background-position: -100px; }
-.icon-gradient-2.icon-gradient-edit{ background-position: -150px; }
 
 /* ---------------------------------
 3. MENU
