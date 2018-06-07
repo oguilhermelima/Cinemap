@@ -15,30 +15,49 @@
 </div>
 {# Sessão mensagem de introdução #}  
 <section class="text-section" id="intro">
-    {# Imagem esquerda #}
-    <div class="image-wrapper" style="background-image: url({{ url_for('static', filename='imgs/img1.jpg') }})">     
-    </div>
     {# Texto #}
     <div class="container">
         <div class="intro section">
-            <h3><b>O <span class="font-green">Mapa Cultural</span> busca integrar eventos culturais e pessoas em <span class="font-green">São Paulo</span></b></h3>
-            <p class="margin-tb-20">O foco do mapa é integrar e dar visibilidade para projetos, artistas, espaços, eventos culturais e seus produtores.</p>
+            <h3 class="justify"><b>O CineMap busca facilitar encontrar os cinemas mais próximos de você em São Paulo</span></b></h3>
+            <p class="subtitle justify margin-tb-20">Com poucos filtros, o site te permite encontrar os cinemas com melhor custo beneficio e mais próximos da sua localidade</p>
         </div>
     </div>
 </section>
-{# Sessão contador #}
-<section class="counter-section section" id="counter">
+{# Sessão sobre #}
+<section class="info-section section" id="counter">
     <div class="container">
         <div class="row">
-            {# col-sm-12 col-md-12 #}
-            <div class="col-sm-12 col-md-12">
+            {# col-sm-4 col-md-4 #}
+            <div class="col-sm-4 col-md-4">
+                {# DIV BUSCAR #}
                 <center>
-                    {# Contador locais #}
-                    <div class="margin-b-30">
-                        <i class="margin-b-10 icon-gradient icon-gradient-bottle"></i>
-                        <h2><b>+ <span class="counter-value" data-duration="1000" data-count="40">0</span></b></h2>
-                        <h6><b>Locais cadastrados</b></h6>
-                    </div>
+                <div class="margin-b-30">
+                    <i class="margin-b-10 fa fa-search fa-3x"></i>
+                    <h4><b>BUSQUE</span></b></h4>
+                    <h6><b>Os cinemas mais próximos de você</b></h6>
+                </div>
+                </center>
+            </div>
+            {# col-sm-4 col-md-4 #}
+            <div class="col-sm-4 col-md-4">
+                {# DIV COMPARAR #}
+                <center>
+                <div class="margin-b-30">
+                    <i class="margin-b-10 fa fa-exchange fa-3x"></i>
+                    <h4><b>COMPARE</span></b></h4>
+                    <h6><b>Verifique os melhores preços das salas de cinemas mais próximas</b></h6>
+                </div>
+                </center>
+            </div>
+            {# col-sm-4 col-md-4 #}
+            <div class="col-sm-4 col-md-4">
+                {# DIV SALVAR #}
+                <center>
+                <div class="margin-b-30">
+                    <i class="margin-b-10 fa fa-save fa-3x"></i>
+                    <h4><b>SALVE</span></b></h4>
+                    <h6><b>Salves os locais e verifique novamente onde e quando quiser</b></h6>
+                </div>
                 </center>
             </div>
         </div>
@@ -49,10 +68,11 @@
     <div class="container">
         {# Texto pesquisa #}
         <div class="heading-area">
-            <h3><b>Busque e salve os <span class="font-green">espaços mais próximos</span> de você e <span class="font-green">se divirta</span> em <span class="font-green">São Paulo.</span>
+            <h3 class="justify"><span class="font-green"><b>Busque</span> e <span class="font-green">salve</span> os <span class="font-green">cinemas mais próximos</span> de você. Para buscar ou salvar, digite o CEP sem traços ou pontos e clique em pesquisar.</b></h3>
             {# Se, não existir usuário logado, apresenta mais um texto #}
             {% if not current_user.name %}
-            Faça login para <span class="font-green">salvar</span> os locais e vizualizar diretamente no seu perfil, sem <span class="font-green">precisar buscar</span>  novamente.</span>
+            <h3 class="justify"><b>
+            Faça login para <span class="font-green">salvar</span> cinemas e vizualizar diretamente no seu perfil, sem <span class="font-green">precisar buscar</span>  novamente.</span>
             {% endif %} 
             </b></h3>
         </div>
@@ -62,7 +82,7 @@
             <div class="input-group padding-lr-0 mb-3 col-xs-12 col-md-7">
                 {# Filtro quantidades, retorna variavel qtt #}
                 <select name="qtt" id="qtt" class="form-control form-control-sm">
-                  <option value="10"><b>Quantidade de locais</b></option>
+                  <option value="10"><b>Quantidade de cinemas</b></option>
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
@@ -138,7 +158,6 @@
                 {% endif %}
                 {% endfor %}
             </div>
-
         {% endif %}
     </div>
 </section>

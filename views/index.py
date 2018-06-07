@@ -35,7 +35,7 @@ def index():
         # Recebe as coordenadas e nomes dos pontos que serão colocados no mapa
         new_map = maps(places)
     # Retorna a lista com os locais e cria o mapa
-    return render_template('index.html', titulo='Mapa Cultural', subtitulo='São Paulo',
+    return render_template('index.html', titulo='CineMap',
         places=places, table=table, movingmap=new_map, cep=cep, qtt=qtt, user=result)
 
 # Retorna o endereço do CEP inserido pelo usuário

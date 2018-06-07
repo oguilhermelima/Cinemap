@@ -71,6 +71,9 @@ button{ outline: 0; border: 0; background: none; cursor: pointer; }
 
 b.max-bold{ font-weight: 700; }
 
+.justify{ text-align:justify; }
+
+
 /* ---------------------------------
 2. COMMONS FOR PAGE DESIGN
 --------------------------------- */
@@ -83,8 +86,9 @@ b.max-bold{ font-weight: 700; }
 
 .right-area{ float: right; }
 
-.font-green{ color: #43cea2; }
+.font-green{ color: #dd1818; }
 .font-white{ color: #FFFFFF; }
+.font-black{ color: #000; }
 .font-white:link{ color: #FFFFFF; }
 
 .margin-tb-10{ margin-top: 10px; margin-bottom: 10px; }
@@ -136,20 +140,20 @@ b.max-bold{ font-weight: 700; }
 /* BUTTON WITH BORDER */
 
 .btn-border{ border: 2px solid #000; 
-	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #93291E 0%, #ED213A); border-image-slice: 1; }
 
 .btn-border:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 0; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .btn-border:hover{ color: #fff; }
 
 .btn-border:hover:after{ opacity: 1; }
 
 .btn-reverse{ border: 2px solid #000; 
-	border-image: linear-gradient(to right, #ffffff 0%, #ffffff); border-image-slice: 1; }
+	border-color: white; border-image-slice: 1; }
 
 .btn-reverse:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 0; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .btn-reverse:hover{ color: #fff; }
 
@@ -158,10 +162,10 @@ b.max-bold{ font-weight: 700; }
 /* BUTTON WITH BACKGROUND */
 
 .btn-fill{ border: 2px solid #ff6a00; color: #fff;
-	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #93291E 0%, #ED213A); border-image-slice: 1; }
 
 .btn-fill:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 1; transition: inherit; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+	opacity: 1; transition: inherit; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .btn-fill:hover{ color: #000; }
 
@@ -299,22 +303,24 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-slider{ height: calc(100%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
-	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+	z-index: -1; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .main-subpages{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-subpages:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
-	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+	z-index: -1; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .main-profile{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-profile:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
-	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+	z-index: -1; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .main-user{ height: calc(10%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-user:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
-	z-index: -1; background: linear-gradient(15deg, #43cea2 0%, #185a9d 100%); }
+	z-index: -1; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
+
+.slider-content .title-header{ font-size: 10em; letter-spacing: 4px; font-family: Allura; }
 
 .slider-content .hand-writing{ margin-top: -10px; font-size: 6em; letter-spacing: 4px; font-family: Allura; }
 
@@ -341,12 +347,12 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 5. SOCIAL SECTION
 --------------------------------- */
 
-.social-section{ padding: 40px 0; background-color: #120F22; color: #fff; }
+.social-section{ padding: 40px 0; background-color: #000000; color: #fff; }
 
 .social-section ul > li:first-child{ position: relative; padding-right: 270px; margin-right: 10px; }
 
 .social-section ul > li:first-child:after{ content: ''; width: 250px; position: absolute; top: 50%; 
-	right: 0; height: 2px; margin-top: -1px; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%);  }
+	right: 0; height: 2px; margin-top: -1px; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%);  }
 
 .social-section ul > li > a{ padding: 0 10px; }
 
@@ -354,20 +360,11 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 6. TEXT AREA
 --------------------------------- */
 
-.text-section{ overflow: hidden; position: relative; }
+.text-section{ overflow: hidden; position: relative; background-image: url(../imgs/cinema.jpg);}
 
-.text-section .image-wrapper{ width: 40%; position: absolute; top: 0; bottom: 0; left: 0; z-index: 1;
-	background-size: cover; }
+.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1.3em; }
 
-.text-section .image-wrapper .icon{ position: absolute; top: 50%; left: 50%; font-size: 80px; 
-	width: 80px; text-align: center; line-height: 1; 
-	margin-left: -40px; margin-top: -40px; color: #fff; }
-
-.text-section .image-wrapper:after{  content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .5;
-	z-index: -1; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
-
-.text-section .intro{ width: 60%; margin-left: 40%; padding-left: 60px; }
-
+.text-section .subtitle { color: white;}
 
 /* ---------------------------------
 7. ABOUT AREA
@@ -386,13 +383,14 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 8. COUNTER SECTION
 --------------------------------- */
 
-.counter-section{ background: #120F22; color: #fff; }
+.counter-section{ background: #000; color: #fff; }
+.info-section{ background: #b21f24; color: #fff; }
 
 /* ---------------------------------
 9. FOOTER
 --------------------------------- */
 
-footer{ padding: 40px 15px 20px; background: #120F22; color: #fff; }
+footer{ padding: 40px 15px 20px; background: #000000; color: #fff; }
 
 footer .logo img{ height: 150px; width: auto; }
 
@@ -401,7 +399,7 @@ footer .footer-section{ padding-left: 20px; }
 footer .footer-section .title{ position: relative; }
 
 footer .footer-section .title:after{ content:''; position: absolute; top: 5px; left: -20px; height: 12px; 
-	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 }
 /* ---------------------------------
@@ -413,10 +411,10 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 }
 
 .icnbox{ padding: 80px 40px 60px; position: relative; border: 2px solid #ff6a00;
-	border-image: linear-gradient(to right, #185a9d 0%, #43cea2); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #93291E 0%, #ED213A); border-image-slice: 1; }
 
 .icnbox:after{ content:''; position:absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	transition: all .25s ease-in; opacity: 0; background: linear-gradient(15deg, #185a9d 0%, #43cea2 100%); }
+	transition: all .25s ease-in; opacity: 0; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
 
 .icnbox.active,
 .icnbox.active .desc,
@@ -497,7 +495,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	2. INTRO AREA
 	--------------------------------- */
 	
-	.text-section .image-wrapper{ position: relative; width: 100%; height: 300px; }
+	.text-section .image-wrapper{ position: relative; width: 100%; height: 300px; font-size: 1em; }
 	
 	.text-section .intro{ margin: 0; width: 100%; padding-left: 0px; }
 		
@@ -526,6 +524,8 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	h3{ font-size: 1.8em; }
 	h4{ font-size: 1.5em; }
 	h5{ font-size: 1.2em; }
+
+	.justify{ text-align: initial; }
 	
 	/* ---------------------------------
 	2. BUTTON, GRADIENTS
@@ -562,6 +562,8 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	
 	header .main-menu li > a{ display: block; border: 0; line-height: 1; height: auto; padding: 15px; background: none; }
 	
+	.slider-content .title-header{ font-size: 5em; letter-spacing: 4px; font-family: Allura; }
+
 	/* NAV ICON */
 	
 	.menu-nav-icon{ display: inline-block; float: right; }
@@ -619,6 +621,10 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 		color:black;
 	    background-color: transparent;
 	}
+	/* ---------------------------------
+	7. TEXT SECTION
+	--------------------------------- */
+	.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1em; }
 
 	/* ---------------------------------
 	8. FOOTER
