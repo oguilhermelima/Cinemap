@@ -589,9 +589,9 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	/* BOTTOM AREA */
 	
 	header .main-menu{ text-align: left; display: none; float: none; clear: both; max-height: 400px;
-		overflow: auto; border-top: 1px solid #ccc; background: #333; }
+		overflow: auto; border-top: 1px solid #ccc; background: rgba(237, 49, 47, 0.9); }
 	
-	header .main-menu > li{ display: block; float: none; border-bottom: 1px solid #444; }
+	header .main-menu > li{ display: block; float: none; border-bottom: 1px solid #fff; }
 	
 	header .main-menu > li:last-child{ border-bottom: 0; }
 	
