@@ -259,7 +259,7 @@ header{ position: absolute; left: 0; right: 0; top: 20px; z-index: 1000; font-si
 	
 /* LOGO */
 
-header .logo img{ height: 50px; width: auto; }
+header .logo img{ height: 70px; width: auto; }
 
 /* MAIN AREA */
 
@@ -289,7 +289,7 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-slider{ height: calc(100%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
-	z-index: -1; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%); }
+	z-index: -1;}
 
 .main-subpages{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
@@ -333,20 +333,22 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 5. SOCIAL SECTION
 --------------------------------- */
 
-.social-section{ padding: 40px 0; background-color: #000000; color: #fff; }
+.social-section{ padding: 40px 0; background-color: #ed312f; color: #fff; }
 
 .social-section ul > li:first-child{ position: relative; padding-right: 270px; margin-right: 10px; }
 
 .social-section ul > li:first-child:after{ content: ''; width: 250px; position: absolute; top: 50%; 
-	right: 0; height: 2px; margin-top: -1px; background: linear-gradient(15deg, #93291E 0%, #ED213A 100%);  }
+	right: 0; height: 2px; margin-top: -1px; background-color: white;  }
 
 .social-section ul > li > a{ padding: 0 10px; }
+
+.social-section ul > li > a:hover{ color:black; }
 
 /* ---------------------------------
 6. TEXT AREA
 --------------------------------- */
 
-.text-section{ overflow: hidden; position: relative; background-color: #000; height: 70%; }
+.text-section{ overflow: hidden; position: relative; background-color: #000; height: 60%; }
 
 .text-section .intro{ width: 100%; color: white; font-size: 1.3em; }
 
@@ -390,7 +392,7 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 10. FOOTER
 --------------------------------- */
 
-footer{ padding: 40px 15px 20px; background: #000000; color: #fff; }
+footer{ padding: 40px 15px 20px; background: #ed312f; color: #fff; }
 
 footer .logo img{ height: 150px; width: auto; }
 
@@ -435,7 +437,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 
 .card{
 	background-color: white;
-	border: 1px solid rgb(181, 18, 27);
+	border: 1px solid rgb(237, 49, 1);
 	border-radius: .25rem;
 	margin-top: 10px;}
 
@@ -445,11 +447,11 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	border-radius: .25rem;}
 
 .card-header:hover{
-	background-color: rgb(181, 18, 27);
+	background-color: rgb(237, 49, 1);
 	color:white;}
 
 .card-header[aria-expanded="true"], .card-header[aria-expanded="true"] a:after{
-	background-color: rgb(181, 18, 27);
+	background-color: rgb(237, 49, 1);
 	color:white;
 	content: "\f107";
 }
@@ -472,11 +474,30 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 /* --------------------------------------
 13. RESPONSIVE
 -----------------------------------------*/
-
-/* Screens Resolution : 992px
+/* Screens Resolution : + than 2160 == 4K
 -------------------------------------------------------------------------- */
-@media only screen and (max-width: 1200px) {	
-	
+@media only screen and (min-width: 2159px) {
+
+	/* ---------------------------------
+	1. HEADER - PARALLAX
+	--------------------------------- */
+
+	#parallax{height: 100%;}
+
+}
+
+/* Screens Resolution : 1200ppx
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+
+	/* ---------------------------------
+	1. HEADER - PARALLAX
+	--------------------------------- */
+
+	#parallax{display:none;}
+
+	#parallax-mobile{ display: block; height: 100%; }
+
 }
 
 /* Screens Resolution : 992px
@@ -579,9 +600,16 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	/* SCROLL DOWN BTN */
 
 	.scroll-down-btn{ display: none; }
-		
+
 	/* ---------------------------------
-	5. SOCIAL SECTION
+	5. HEADER - PARALLAX
+	--------------------------------- */
+
+	#parallax{display:none;}
+	#parallax-mobile{ display: block; height: 100%;	}
+
+	/* ---------------------------------
+	6. SOCIAL SECTION
 	--------------------------------- */
 
 	.social-section ul > li:first-child{ display: block; padding: 0px 0 12px; margin: 0 0 10px; }
@@ -591,7 +619,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	.social-section ul > li > a{ padding: 0; padding-right: 15px; }
 		
 	/* ---------------------------------
-	6. User info
+	7. User info
 	--------------------------------- */
 
 	.main-profile{
@@ -607,7 +635,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	}
 
 	/* ---------------------------------
-	7. COLLAPSE
+	8. COLLAPSE
 	--------------------------------- */
 	.collapse-style{
 		padding-top: 3px;
@@ -622,12 +650,12 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	    background-color: transparent;
 	}
 	/* ---------------------------------
-	7. TEXT SECTION
+	9. TEXT SECTION
 	--------------------------------- */
 	.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1em; }
 
 	/* ---------------------------------
-	8. FOOTER
+	10. FOOTER
 	--------------------------------- */
 
 	footer{ padding: 50px 0px 10px; }	
@@ -668,7 +696,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 }
 
 #parallax {
-	background-color:#b21f24;
+	background-color: #880088;
 	height: 100%;
 	margin: auto;
 	overflow: hidden;
@@ -682,13 +710,9 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	left: 0;
 }
 
-#background-header{
-
-}
-#logo-header{
-	width: 99%;
+#parallax-mobile{
+	display: none;
 }
 
-#icons-header{
-	width: 98%;
-}
+
+

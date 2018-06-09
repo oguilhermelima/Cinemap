@@ -8,7 +8,9 @@
                     {# Div com logo e texto centralizados #}
                     <div class="margin-b-30">
                         {# Logo #}
-                        <h2><i class="fa fa-film"></i> CineMap</h2>
+                         <a class="logo">
+                            <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo">
+                        </a>
                         {# Texto #}
                         <p class="font-white copyright">Desenvolvido por: 
                             <a href="https://github.com/oguilherme-lima" target="_blank">Guilherme Lima de Oliveira</a>
@@ -19,9 +21,8 @@
         </div>
     </div>
 </footer>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 {# JS #}
-<script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>

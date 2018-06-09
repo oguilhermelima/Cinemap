@@ -1,7 +1,12 @@
-{# Imagem de fundo do header #}
+{# DIV COM AS IMAGENS DO EFEITO PARALLAX #}
 <div id="parallax">
-  <img id="background-header" src="{{ url_for('static', filename='imgs/background.png') }}">
-  <img id="icons-header" src="{{ url_for('static', filename='imgs/icones.png') }}" />
-  <img id="logo-header" src="{{ url_for('static', filename='imgs/logo.png') }}" />
+  {# IMAGEM DE FUNDO #}
+  <img src="{{ url_for('static', filename='imgs/background.png') }}">
+  {# IMAGEM COM ICONES #}
+  <img style="width:95%" src="{{ url_for('static', filename='imgs/icones.png') }}" />
+  {# LOGO #}
+  <img style="width:90%" src="{{ url_for('static', filename='imgs/logo.png') }}" />
 </div>  
 
+{# REMOVE PARALLAX NOS MOBILES #}
+<div class="main-slider" id="parallax-mobile" style="background-image:url({{ url_for('static', filename='imgs/background-mobile.png') }});"></div>
