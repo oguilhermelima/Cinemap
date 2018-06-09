@@ -1,18 +1,7 @@
 {# Imagem de fundo do header #}
-<div class="main-slider" style="background-image:url({{ url_for('static', filename='imgs/header.jpg') }});">
-    {# Div com o texto #}
-    <div class="display-table center-text">
-        <div class="display-table-cell">
-            <div class="slider-content">
-                {# Logo #}  
-                <a class="logo">
-                    <img src="{{ url_for('static', filename='imgs/logo_mini.png') }}" alt="Logo">
-                </a>
-                {# Recebe do flask o titulo #}
-                <h1 class="title-header"><b>{{ titulo }}</b></h1>
-                {# Recebe do flask o subtitulo #}
-                <h1 class="hand-writing">{{ subtitulo }}</h1>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="parallax">
+  <img src="https://image.ibb.co/e336so/btt1.png">
+  <img src="https://image.ibb.co/ejOBQ8/middlet.png" />
+  <img src="https://image.ibb.co/jEjwso/Top.png" />
+</div>  
+

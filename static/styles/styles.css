@@ -351,7 +351,7 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 
 .text-section .subtitle { color: white;}
 
-.parallax { 
+.parallaxx { 
     /* The image used */
     background-image: url(../imgs/cinema.jpg);
 
@@ -674,3 +674,17 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	
 }
 
+#parallax {
+	background-color:#b21f24;
+	height: 100%;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+
+}
+
+#parallax img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
