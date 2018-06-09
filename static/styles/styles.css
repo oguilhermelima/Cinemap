@@ -291,6 +291,12 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
 	z-index: -1;}
 
+#parallax { background-color: #880088; height: 100%; margin: auto; overflow: hidden; position: relative;}
+
+#parallax img {	position: absolute;	top: 0;	left: 0;}
+
+#parallax-mobile{ display: none;}
+
 .main-subpages{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-subpages:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
@@ -496,7 +502,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 
 	#parallax{display:none;}
 
-	#parallax-mobile{ display: block; height: 100%; }
+	#parallax-mobile{ display: block; height: 100%; height:100%; }
 
 }
 
@@ -693,25 +699,6 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 -------------------------------------------------------------------------- */
 @media only screen and (max-width: 290px) {	
 	
-}
-
-#parallax {
-	background-color: #880088;
-	height: 100%;
-	margin: auto;
-	overflow: hidden;
-	position: relative;
-
-}
-
-#parallax img {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#parallax-mobile{
-	display: none;
 }
 
 
