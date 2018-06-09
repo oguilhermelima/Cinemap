@@ -17,10 +17,11 @@
 	6. TEXT AREA
 	7. ABOUT AREA
 	8. COUNTER SECTION
-	9. FOOTER
-	10. ICON BOX STYLING
-	11. COLLAPSE
-	12. RESPONSIVE
+	9. COUNTER SECTION
+	10. FOOTER
+	11. ICON BOX STYLING
+	12. COLLAPSE
+	13. RESPONSIVE
 ====================================================
 
 /* ---------------------------------
@@ -345,25 +346,12 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 6. TEXT AREA
 --------------------------------- */
 
-.text-section{ overflow: hidden; position: relative; }
+.text-section{ overflow: hidden; position: relative; background-color: #000; height: 70%; }
 
-.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1.3em; }
+.text-section .intro{ width: 100%; color: white; font-size: 1.3em; }
 
 .text-section .subtitle { color: white;}
 
-.parallaxx { 
-    /* The image used */
-    background-image: url(../imgs/cinema.jpg);
-
-    /* Set a specific height */
-    height: 70%; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .layer {
 	background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
@@ -391,10 +379,15 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 --------------------------------- */
 
 .counter-section{ background: #000; color: #fff; }
-.info-section{ background: #b21f24; color: #fff; }
 
 /* ---------------------------------
-9. FOOTER
+9. INFO SECTION
+--------------------------------- */
+
+.info-section{ background: #ed312f; color: #fff; border-top: 1px solid; border-color: white;}
+
+/* ---------------------------------
+10. FOOTER
 --------------------------------- */
 
 footer{ padding: 40px 15px 20px; background: #000000; color: #fff; }
@@ -410,7 +403,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 
 }
 /* ---------------------------------
-10. ICON BOX STYLING
+11. ICON BOX STYLING
 --------------------------------- */
 .icnbox:after, footer .footer-section .title:after {
     content: '';
@@ -435,7 +428,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 .icnbox:hover .icon{ filter: brightness(0) invert(1); }
 
 /* ---------------------------------
-11. COLLAPSE
+12. COLLAPSE
 --------------------------------- */
 .collapse-style{
 	margin-top: 10px;}
@@ -477,7 +470,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	font-size: 1em;
 	color: black;}
 /* --------------------------------------
-11. RESPONSIVE
+13. RESPONSIVE
 -----------------------------------------*/
 
 /* Screens Resolution : 992px
@@ -687,4 +680,15 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+#background-header{
+
+}
+#logo-header{
+	width: 99%;
+}
+
+#icons-header{
+	width: 98%;
 }
