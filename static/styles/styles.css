@@ -291,7 +291,7 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
 	z-index: -1;}
 
-#parallax { background-color: #880088; height: 100%; margin: auto; overflow: hidden; position: relative;}
+#parallax { background-color: #ed312f; height: 100%; margin: auto; overflow: hidden; position: relative;}
 
 #parallax img {	position: absolute;	top: 0;	left: 0;}
 
@@ -375,12 +375,15 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 
 .about-section{ overflow: hidden; position: relative; background: #fff; }
 
-.about-section .image-wrapper{ width: 40%;position: absolute; 
+.about-section .image-wrapper{ width: 30%;position: absolute; 
 	top: 0; bottom: 0; left: 0; text-align: right; }
 
 .about-section .image-wrapper img{  max-width: 300px; }
 
-.about-section .about{ width: 100%; margin-left: 0%; padding-left: 60px; }
+.about-section .about{ width: 70%; margin-left: 30%; padding-left: 60px; }
+
+.about-section p {font-size: 1.5em;}
+
 
 /* ---------------------------------
 8. COUNTER SECTION
@@ -393,6 +396,9 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 --------------------------------- */
 
 .info-section{ background: #ed312f; color: #fff; border-top: 1px solid; border-color: white;}
+
+.info-img{max-width: 60%; margin-top:10%;}
+
 
 /* ---------------------------------
 10. FOOTER
@@ -503,6 +509,8 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	#parallax{display:none;}
 
 	#parallax-mobile{ display: block; height: 100%; height:100%; }
+	
+
 
 }
 
@@ -659,6 +667,8 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	9. TEXT SECTION
 	--------------------------------- */
 	.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1em; }
+
+	.info-img{max-width: 30%; margin-top:10%;}
 
 	/* ---------------------------------
 	10. FOOTER

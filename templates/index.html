@@ -2,7 +2,7 @@
 {% block content %}
 
 {# Sessão redes sociais #}
-<div class="social-section" id="next">
+<div class="social-section">
     <div class="container">
         {# Lista com icones das redes sociais #}
         <ul>
@@ -13,55 +13,80 @@
         </ul>  
     </div>
 </div>
-{# Sessão mensagem de introdução #}  
-<section class="text-section" id="intro">
-    <div class="layer">
-        {# Texto #}
-        <div class="container">
-            <div class="intro section">
-                <h3 class="justify"><b>O CineMap apresenta os cinemas mais próximos de você em São Paulo</span></b></h3>
-                <p class="subtitle justify margin-tb-20">Com poucos filtros, o site te permite encontrar os cinemas com melhor custo beneficio e mais próximos da sua localidade</p>
+
+{# Sessão sobre #}
+<section class="about-section section" id="about">
+    <div class="container position-relative">
+        <div class="image-wrapper">
+            <div class="display-table">
+                {# Imagem lado esquerdo #}
+                <div class="display-table-cell">
+                    <img src="{{ url_for('static', filename='imgs/img1.png') }}" alt="About Image">
+                </div>
             </div>
+        </div>  
+        {# Texto #}  
+        <div class="about">
+            <h3><b>Quer ir ao cinema mais próximo e com o melhor custo-benefício? O <span class="font-green">CineMap</span> pode te ajudar.</b></h3>
+            <p class="margin-tb-20">Com poucos filtros, o site te permite encontrar cinemas de acordo com preços e proximidade.
         </div>
     </div>
 </section>
 
-{# Sessão sobre #}
+{# Sessão detalhes #}
 <section class="info-section section" id="counter">
     <div class="container">
         <div class="row">
-            {# col-sm-4 col-md-4 #}
-            <div class="col-sm-4 col-md-4">
+            {# col-sm-2 col-md-2 #}
+            <div class="col-sm-2 col-md-2">
                 {# DIV BUSCAR #}
                 <center>
                 <div class="margin-b-30">
-                    <i class="margin-b-10 fa fa-search fa-3x"></i>
-                    <h4><b>BUSQUE</span></b></h4>
-                    <h6><b>Os cinemas mais próximos de você</b></h6>
+                    <img class="info-img" src="{{ url_for('static', filename='imgs/search.png') }}">
                 </div>
                 </center>
+            </div>            
+            {# col-sm-10 col-md-10 #}
+            <div class="col-sm-10 col-md-10">
+                {# DIV BUSCAR #}
+                <div class="margin-b-30">
+                    <h2><b>BUSQUE</span></b></h2>
+                    <h4>Os cinemas mais próximos de você</h4>
+                </div>
             </div>
-            {# col-sm-4 col-md-4 #}
-            <div class="col-sm-4 col-md-4">
-                {# DIV COMPARAR #}
+            {# col-sm-2 col-md-2 #}
+            <div class="col-sm-2 col-md-2">
+                {# DIV BUSCAR #}
                 <center>
                 <div class="margin-b-30">
-                    <i class="margin-b-10 fa fa-exchange fa-3x"></i>
-                    <h4><b>COMPARE</span></b></h4>
-                    <h6><b>Verifique os melhores preços das salas de cinemas mais próximas</b></h6>
+                    <img class="info-img" src="{{ url_for('static', filename='imgs/compare.png') }}">
                 </div>
                 </center>
+            </div>            
+            {# col-sm-10 col-md-10 #}
+            <div class="col-sm-10 col-md-10">
+                {# DIV BUSCAR #}
+                <div class="margin-b-30">
+                    <h2><b>COMPARE</span></b></h2>
+                    <h4>Verifique os melhores preços das salas de cinemas mais próximas</h4>
+                </div>
             </div>
-            {# col-sm-4 col-md-4 #}
-            <div class="col-sm-4 col-md-4">
-                {# DIV SALVAR #}
+            {# col-sm-2 col-md-2 #}
+            <div class="col-sm-2 col-md-2">
+                {# DIV BUSCAR #}
                 <center>
                 <div class="margin-b-30">
-                    <i class="margin-b-10 fa fa-save fa-3x"></i>
-                    <h4><b>SALVE</span></b></h4>
-                    <h6><b>Salves os locais e verifique novamente onde e quando quiser</b></h6>
+                    <img class="info-img" src="{{ url_for('static', filename='imgs/save.png') }}">
                 </div>
                 </center>
+            </div>            
+            {# col-sm-10 col-md-10 #}
+            <div class="col-sm-10 col-md-10">
+                {# DIV BUSCAR #}
+                <div class="margin-b-30">
+                    <h2><b>SALVE</span></b></h2>
+                    <h4>Salves os locais e verifique novamente diretamente no seu perfil</h4>
+                </div>
             </div>
         </div>
     </div>
@@ -71,7 +96,7 @@
     <div class="container">
         {# Texto pesquisa #}
         <div class="heading-area">
-            <h3 class="justify"><span class="font-green"><b>Busque</span> e <span class="font-green">salve</span> os <span class="font-green">cinemas mais próximos</span> de você. Para buscar ou salvar, digite o CEP sem traços ou pontos e clique em pesquisar.</b></h3>
+            <h3 class="justify"><b>Para buscar ou salvar, digite o CEP sem traços ou pontos e clique em pesquisar.</b></h3>
             {# Se, não existir usuário logado, apresenta mais um texto #}
             {% if not current_user.name %}
             <h3 class="justify"><b>
