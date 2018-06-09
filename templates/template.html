@@ -6,13 +6,57 @@
         <meta charset="UTF-8">
         {# Recebe do flask o titulo da página #}
         <title>{{ titulo }}</title>
-
-        {# Inclue o CSS #}
-        {% include "template/css.html" %}
+        {# Fontes #}
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/fonts/font-awesome.min.css') }}">
+        <link type="text/css" rel="stylesheet"  href="{{ url_for('static', filename='styles/fonts/icon-form.css') }}">
+        <link type="text/css" rel="stylesheet"  href="{{ url_for('static', filename='styles/fonts/alura-font.css') }}">
+        {# CSS #}
+        {# Bootstrap #}
+        <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+        {# Setas Botão #}
+        <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/ionicons.css') }}">
+        {# Estilo do template #} 
+        <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+        {# Responsividade #} 
+        <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/responsive.css') }}">
+        {# Formulário #}
+        <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/form.css') }}"> 
     </head>
     <body >
-        {# Inclue a navbar #}
-        {% include "template/navbar.html" %}
+
+        <header>
+            <div class="container">
+                {# Ícone menu versão mobile #}
+                <div class="menu-nav-icon" data-nav-menu="#main-menu">
+                    <i class="ion-navicon"></i>
+                </div>
+                {# Lista com os links #}
+                <ul class="main-menu visible-on-click" id="main-menu">
+                    {# Se o usuário não for administrador #}
+                    {% if not current_user.type == "admin" %}
+                        {# Se não existir usuário logado #}
+                        {% if not current_user.name %}
+                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('signin.login') }}">Entrar</a></li>
+                        <li><a href="{{ url_for('signin.register') }}">Cadastrar</a></li>
+                        {# Se o usuário estiver logado #}
+                        {% else %}
+                        <li><a>Olá, {{ current_user.name }}</a></li>
+                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('profile.profile') }}">Meu perfil</a></li>
+                        <li><a href="{{ url_for('signin.logout') }}">Logout</a></li>
+                        {% endif %}
+                    {# Se o usuário for administrador #}    
+                    {% else %}
+                        <li><a>Olá, {{ current_user.name }}</a></li>
+                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('administration.dashboard') }}">Gerenciar</a></li>
+                        <li><a href="{{ url_for('profile.profile') }}">Meu perfil</a></li>
+                        <li><a href="{{ url_for('signin.logout') }}">Logout</a></li>
+                    {% endif %}    
+                </ul>
+            </div>
+        </header>
 
         {# Imagem do topo #}
         {% if titulo=="CineMap" %}
@@ -31,7 +75,36 @@
         {% block content %}             
         {% endblock content %}
 
-        {# Footer e JS #}
-        {% include "template/footer.html" %}
+        {# Footer #}
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    {# col-md-12 col-lg-12 col-xl-12 #}
+                    <div class="col-md-12 col-lg-12 col-xl-12">
+                        <center>
+                            {# Div com logo e texto centralizados #}
+                            <div class="margin-b-30">
+                                {# Logo #}
+                                 <a class="logo">
+                                    <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Logo">
+                                </a>
+                                {# Texto #}
+                                <p class="font-white copyright">Desenvolvido por: 
+                                    <a href="https://github.com/oguilherme-lima" target="_blank">Guilherme Lima de Oliveira</a>
+                                </p>
+                            </div>
+                        </center>  
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {# JS #}
+        <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/autocomplete.js') }}"></script>
+
     </body>
 </html>
