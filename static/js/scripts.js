@@ -9,18 +9,9 @@
 	// SCROLL TO ELEMENT
 	scrollToAnim();
 	
-	// LINE PROGRESS BAR
-	enableLineProgress();
-	
-	// RADIAL PROGRESS BAR
-	enableRadialProgress()
-	
 	// ACCORDIAN
 	panelAccordian();
-	
-	// ENABLE SWIPER SLIDER
-	enableSwiper();
-	
+		
 	
 	// ISOTOPE PORTFOLIO WITH FILTER
 	if(isExists('.portfolioContainer')){
@@ -101,78 +92,6 @@ function panelAccordian(){
 	
 }
 
-function enableRadialProgress(){
-	
-	$(".radial-progress").each(function(){
-		var $this = $(this),
-			progPercent = $this.data('prog-percent');
-			
-		var bar = new ProgressBar.Circle(this, {
-			color: '#aaa',
-			strokeWidth: 3,
-			trailWidth: 1,
-			easing: 'easeInOut',
-			duration: 1400,
-			text: {
-				
-			},
-			from: { color: '#aaa', width: 1 },
-			to: { color: '#F50A93', width: 3 },
-			// Set default step function for all animate calls
-			step: function(state, circle) {
-				circle.path.setAttribute('stroke', state.color);
-				circle.path.setAttribute('stroke-width', state.width);
-
-				var value = Math.round(circle.value() * 100);
-				if (value === 0) {
-					circle.setText('');
-				} else {
-					circle.setText(value);
-				}
-
-			}
-		});
-		
-		$(this).waypoint(function(){
-		   bar.animate(progPercent);  
-		},{offset: "90%"})
-		
-	});
-}
-
-function enableLineProgress(){
-	
-	$(".line-progress").each(function(){
-		var $this = $(this),
-			progPercent = $this.data('prog-percent');
-			
-		var bar = new ProgressBar.Line(this, {
-			strokeWidth: 1,
-			easing: 'easeInOut',
-			duration: 1400,
-			color: '#F50A93',
-			trailColor: '#eee',
-			trailWidth: 1,
-			svgStyle: {width: '100%', height: '100%'},
-			text: {
-				style: {
-					
-				},
-			},
-			from: {color: '#FFEA82'},
-			to: {color: '#ED6A5A'},
-			step: (state, bar) => {
-				bar.setText(Math.round(bar.value() * 100) + ' %');
-			}
-		});
-		
-		$(this).waypoint(function(){
-		   bar.animate(progPercent);  
-		},{offset: "90%"})
-		
-	});
-}
-
 function enableCounterUp(a){
 	
 	var counterElement;
@@ -208,20 +127,6 @@ function enableCounterUp(a){
 
 	return a;
 }
-function countdownTime(){
-	
-	if(isExists('#clock')){
-		$('#clock').countdown('2018/01/01', function(event){
-			var $this = $(this).html(event.strftime(''
-				+ '<div class="time-sec"><span class="title">%D</span> days </div>'
-				+ '<div class="time-sec"><span class="title">%H</span> hours </div>'
-				+ '<div class="time-sec"><span class="title">%M</span> minutes </div>'
-				+ '<div class="time-sec"><span class="title">%S</span> seconds </div>'));
-		});
-	}
-}
-
-
 
 function dropdownMenu(winWidth){
 	
@@ -340,73 +245,44 @@ function siteNavigation(){
 	}
 	
 }
-
-function enableSwiper(){
-	
-	if ( isExists('.swiper-container') ) {
-		
-		
-
-		$('.swiper-container').each(function (index) {
-			
-			
-	
-			var swiperDirection 			= $(this).data('swiper-direction'),
-				swiperSlidePerView			= $(this).data('swiper-slides-per-view'),
-				swiperBreakpoints			= $(this).data('swiper-breakpoints'),
-				swiperSpeed					= $(this).data('swiper-speed'),
-				swiperCrossFade				= $(this).data('swiper-crossfade'),
-				swiperLoop					= $(this).data('swiper-loop'),
-				swiperAutoplay 				= $(this).data('swiper-autoplay'),
-				swiperMousewheelControl 	= $(this).data('swiper-wheel-control'),
-				swipeSlidesPerview 			= $(this).data('slides-perview'),
-				swiperMargin 				= parseInt($(this).data('swiper-margin')),
-				swiperSlideEffect 			= $(this).data('slide-effect'),
-				swiperAutoHeight 			= $(this).data('autoheight'),
-				swiperScrollbar 			= ($(this).data('scrollbar') ? $(this).find('.swiper-scrollbar') : null);
-				swiperScrollbar 			= (isExists(swiperScrollbar) ? swiperScrollbar : null);
-				
-			
-			var swiper = new Swiper($(this)[0], {
-				pagination			: $(this).find('.swiper-pagination'),
-				
-				autoplayDisableOnInteraction: false,
-				slidesPerView		: ( swiperSlidePerView ? swiperSlidePerView : 1 ),
-				direction			: ( swiperDirection ? swiperDirection : 'horizontal'),
-				loop				: ( swiperLoop ? swiperLoop : false),
-				nextButton			: '.swiper-button-next',
-				prevButton			: '.swiper-button-prev',
-				autoplay			: ( swiperAutoplay ? swiperAutoplay : false),
-				paginationClickable	: true,
-				spaceBetween		: ( swiperMargin ? swiperMargin : 0),
-				mousewheelControl	: ( (swiperMousewheelControl) ? swiperMousewheelControl : false),
-				scrollbar			: ( swiperScrollbar ? swiperScrollbar : null ),
-				scrollbarHide		: false,
-				speed				: ( swiperSpeed ? swiperSpeed : 1000 ),
-				autoHeight			: ( (swiperAutoHeight == false) ? swiperAutoHeight : true ),
-				effect				: ( swiperSlideEffect ? swiperSlideEffect : 'coverflow' ),
-				fade				: { crossFade: swiperCrossFade ? swiperCrossFade : false },
-				breakpoints			: {
-											1200: { slidesPerView: swiperBreakpoints ? 3 : 1, },
-											992: { slidesPerView: swiperBreakpoints ? 2 : 1, },
-											580: { slidesPerView: 1, }
-											
-										},
-			});
-			
-			$('.swiper-container').hover(function(){
-				swiper.stopAutoplay();
-			}, function(){
-				swiper.startAutoplay();
-			});
-			
-			
-		});
-		
-		
-	}
+/////////////// SCROLL PARA SESSÃO HTML
+// Recebe a url e retorna os parametros 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-//SCRIPT PARALLAX
+
+var submit = getParameterByName('submit');
+
+// Faz rolagem para sessão de locais no html 
+if (submit=="locais"){
+	var scrolldown = document.getElementById("locais");
+	scrolldown.scrollIntoView();
+}
+
+////////////////// BUSCA CEP E AUTO COMPLETA CAMPOS
+$("#cep").focusout(function(){
+	$.ajax({
+	//O campo URL diz o caminho de onde virá os dados
+	url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+    //Define o tipo de dado para JSON
+	dataType: 'json',
+	//SUCESS função executada caso consiga ler a fonte de dados com sucesso
+	success: function(endereco){
+	    $("#rua").val(endereco.logradouro);
+		$("#bairro").val(endereco.bairro);
+		$("#cidade").val(endereco.localidade);
+		$("#estado").val(endereco.uf);
+		}
+	});
+});
+
+/////////////// SCRIPT PARALLAX
 $('#parallax').mousemove(
 	function(e){
 		/* Detecta a posição do mouse */
@@ -447,3 +323,13 @@ $('#parallax').mousemove(
 
 	}
 );
+
+/////////////// SLIDER QUANTIDADE DE LOCAIS - FILTROS INDEX
+var slider = document.getElementById("range-places");
+var output = document.getElementById("count-places");
+output.innerHTML = slider.value; // APRESENTA O VALOR PADRÃO DO SLIDER
+
+// MUDA O VALOR TODA VEZ QUE MOVIMENTA O SLIDER
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}

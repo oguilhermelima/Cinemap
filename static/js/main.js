@@ -90,7 +90,7 @@ function validation()
     var a = document.form.usuario.value;
     if(a=="")
     {
-    alert("Please Enter Your Name");
+    alert("Por favor, coloque seu nome");
     document.form.usuario.focus();
     return false;
 }
