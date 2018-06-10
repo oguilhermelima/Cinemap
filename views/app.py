@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from whitenoise import WhiteNoise
 from flask_login import LoginManager
 from flask_googlemaps import GoogleMaps
 from .db_users import find_user
@@ -7,6 +8,7 @@ import os
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static') 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'WYZ')
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='../static/')
 
 # Não retorna 404 quando o usuário insere slash(/) no final da URI
 app.url_map.strict_slashes = False
