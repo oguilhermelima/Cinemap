@@ -10,21 +10,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'WYZ')
 
 # GZIP
-app.wsgi_app = WhiteNoise(app.wsgi_app)
-my_static_folders = (
-	'static/fonts/',
-    'static/fonts/montserrat/',
-    'static/fonts/poppins/',
-    'static/imgs/',
-    'static/js/',
-    'static/styles/',
-    'static/styles/fonts/',
-    'static/templates/',
-    'static/templates/admin',
-    'static/templates/template',
-)
-for static in my_static_folders:
-    app.wsgi_app.add_files(static)
+app.wsgi_app = WhiteNoise(app.wsgi_app, root=os.path.join(os.path.dirname(__file__), 'static'), prefix='static/')
 
 # Não retorna 404 quando o usuário insere slash(/) no final da URI
 app.url_map.strict_slashes = False
