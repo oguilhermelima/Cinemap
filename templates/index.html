@@ -27,8 +27,8 @@
         </div>  
         {# Texto #}  
         <div class="about">
-            <h3><b>Quer ir ao cinema mais próximo e com o melhor custo-benefício? O <span class="font-green">CineMap</span> pode te ajudar.</b></h3>
-            <p class="margin-tb-20">Com poucos filtros, o site te permite encontrar cinemas de acordo com preços e proximidade.
+            <h3><b>Quer ir ao cinema mais próximo e com o melhor custo-benefício? O <span class="font-red">CineMap</span> pode te ajudar.</b></h3>
+            <p class="margin-tb-20">Com poucos filtros, o site te permite encontrar cinemas de acordo com preço e proximidade.
         </div>
     </div>
 </section>
@@ -85,7 +85,7 @@
                 {# DIV BUSCAR #}
                 <div class="margin-b-30">
                     <h2><b>SALVE</span></b></h2>
-                    <h4>Salves os locais e verifique novamente diretamente no seu perfil</h4>
+                    <h4>Salves as salas de cinema diretamente no seu perfil e veja novamente sem precisar fazer uma nova busca</h4>
                 </div>
             </div>
         </div>
@@ -100,7 +100,7 @@
             {# Se, não existir usuário logado, apresenta mais um texto #}
             {% if not current_user.name %}
             <h3 class="justify"><b>
-            Faça login para <span class="font-green">salvar</span> cinemas e vizualizar diretamente no seu perfil, sem <span class="font-green">precisar buscar</span>  novamente.</span>
+            Faça login para <span class="font-red">salvar</span> cinemas e vizualizar diretamente no seu perfil, sem <span class="font-red">precisar buscar</span>  novamente.</span>
             {% endif %} 
             </b></h3>
         </div>
