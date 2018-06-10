@@ -12,16 +12,16 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'WYZ')
 # GZIP
 app.wsgi_app = WhiteNoise(app.wsgi_app)
 my_static_folders = (
-	'../static/fonts/',
-    '../static/fonts/montserrat/',
-    '../static/fonts/poppins/',
-    '../static/imgs/',
-    '../static/js/',
-    '../static/styles/',
-    '../static/styles/fonts/',
-    '../static/templates/',
-    '../static/templates/admin',
-    '../static/templates/template',
+	'static/fonts/',
+    'static/fonts/montserrat/',
+    'static/fonts/poppins/',
+    'static/imgs/',
+    'static/js/',
+    'static/styles/',
+    'static/styles/fonts/',
+    'static/templates/',
+    'static/templates/admin',
+    'static/templates/template',
 )
 for static in my_static_folders:
     app.wsgi_app.add_files(static)
