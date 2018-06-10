@@ -505,7 +505,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
     width: 100%;
     height: 15px;
     border-radius: 5px;
-    background: #ed312f;
+    background: #ed3101;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -522,7 +522,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    border: 2px solid #000; 
+    border: 1px solid #000; 
 	border-color: black; 
     background: #fff;
     cursor: pointer;

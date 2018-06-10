@@ -85,7 +85,7 @@
                 {# DIV BUSCAR #}
                 <div class="margin-b-30">
                     <h2><b>SALVE</span></b></h2>
-                    <h4>Salves as salas de cinema diretamente no seu perfil e veja novamente sem precisar fazer uma nova busca</h4>
+                    <h4>Salve e acesse as salas de cinema diretamente no seu perfil, sem a necessidade de fazer uma nova busca</h4>
                 </div>
             </div>
         </div>
@@ -96,13 +96,15 @@
     <div class="container">
         {# Texto pesquisa #}
         <div class="heading-area">
-            <h3 class="justify"><b>Para buscar ou salvar, digite o CEP sem traços ou pontos e clique em pesquisar.</b></h3>
+            <h3 class="justify">
+                <b>Para buscar, digite o CEP sem traços ou pontos e clique em pesquisar.</b>
+            </h3>
             {# Se, não existir usuário logado, apresenta mais um texto #}
             {% if not current_user.name %}
-            <h3 class="justify"><b>
-            Faça login para <span class="font-red">salvar</span> cinemas e vizualizar diretamente no seu perfil, sem <span class="font-red">precisar buscar</span>  novamente.</span>
+            <h3 class="justify">
+                <b><span class="font-red">Para salvar locais é preciso fazer login.</span></b>
+            </h3>
             {% endif %} 
-            </b></h3>
         </div>
         {# Form que recebe o valor da variavel CEP, filtros e atualiza o mapa no index #}
         <form method="GET" action="/#locais">
