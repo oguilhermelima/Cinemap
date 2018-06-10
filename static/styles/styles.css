@@ -141,10 +141,10 @@ b.max-bold{ font-weight: 700; }
 /* BUTTON WITH BORDER */
 
 .btn-border{ border: 2px solid #000; 
-	border-image: linear-gradient(to right, #d42c2a 0%, #ee403e); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #d42c2a 0%, #ed3101); border-image-slice: 1; }
 
 .btn-border:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 0; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .btn-border:hover{ color: #fff; }
 
@@ -154,7 +154,7 @@ b.max-bold{ font-weight: 700; }
 	border-color: white; border-image-slice: 1; }
 
 .btn-reverse:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 0; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	opacity: 0; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .btn-reverse:hover{ color: #fff; }
 
@@ -163,10 +163,10 @@ b.max-bold{ font-weight: 700; }
 /* BUTTON WITH BACKGROUND */
 
 .btn-fill{ border: 2px solid #ff6a00; color: #fff;
-	border-image: linear-gradient(to right, #d42c2a 0%, #ee403e); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #d42c2a 0%, #ed3101); border-image-slice: 1; }
 
 .btn-fill:after{ content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	opacity: 1; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	opacity: 1; transition: inherit; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .btn-fill:hover{ color: #000; }
 
@@ -300,17 +300,17 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-subpages{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-subpages:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
-	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .main-profile{ height: calc(70%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-profile:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
-	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .main-user{ height: calc(10%); position: relative; z-index: 10; background-size: cover; color: #fff; } 
 
 .main-user:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .9;
-	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	z-index: -1; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .slider-content .title-header{ font-size: 10em; letter-spacing: 4px; font-family: Allura; }
 
@@ -413,7 +413,7 @@ footer .footer-section{ padding-left: 20px; }
 footer .footer-section .title{ position: relative; }
 
 footer .footer-section .title:after{ content:''; position: absolute; top: 5px; left: -20px; height: 12px; 
-	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	width: 12px; border-radius: 12px; background:  linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 }
 /* ---------------------------------
@@ -425,10 +425,10 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 }
 
 .icnbox{ padding: 80px 40px 60px; position: relative; border: 2px solid #ff6a00;
-	border-image: linear-gradient(to right, #d42c2a 0%, #ee403e); border-image-slice: 1; }
+	border-image: linear-gradient(to right, #d42c2a 0%, #ed3101); border-image-slice: 1; }
 
 .icnbox:after{ content:''; position:absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1; 
-	transition: all .25s ease-in; opacity: 0; background: linear-gradient(15deg, #d42c2a 0%, #ee403e 100%); }
+	transition: all .25s ease-in; opacity: 0; background: linear-gradient(15deg, #d42c2a 0%, #ed3101 100%); }
 
 .icnbox.active,
 .icnbox.active .desc,
@@ -483,6 +483,78 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 #card-body{
 	font-size: 1em;
 	color: black;}
+
+.btn-filter {
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+	color:black;
+    background-color: transparent;}
+
+.qtt-places p{
+	color: black;
+	font-size: 1em;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #ed312f;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #000; 
+	border-color: black; 
+    background: #fff;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.input-index input{
+	border: 1px solid; 
+	border-color: rgb(237, 49, 1);
+}
+.input-index input:focus{
+	background-color: #F5F5F5;
+}
+.input-index input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+.input-index input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+
+.input-index input::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
 /* --------------------------------------
 13. RESPONSIVE
 -----------------------------------------*/
@@ -657,7 +729,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	.btn-link {
 		padding-left: 0px;
 		padding-right: 0px;
-		font-size: 0.55em;
+		font-size: 0.65em;
 		font-weight: bold;
 		text-decoration: none;
 		color:black;
@@ -710,6 +782,3 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 @media only screen and (max-width: 290px) {	
 	
 }
-
-
-

@@ -28,7 +28,7 @@
         {# Texto #}  
         <div class="about">
             <h3><b>Quer ir ao cinema mais próximo e com o melhor custo-benefício? O <span class="font-red">CineMap</span> pode te ajudar.</b></h3>
-            <p class="margin-tb-20">Com poucos filtros, o site te permite encontrar cinemas de acordo com preço e proximidade.
+            <p class="margin-tb-20">Com poucos filtros, você consegue encontrar cinemas de acordo com preço e distância em relação à sua localidade.
         </div>
     </div>
 </section>
@@ -107,22 +107,47 @@
         {# Form que recebe o valor da variavel CEP, filtros e atualiza o mapa no index #}
         <form method="GET" action="/#locais">
             {# Filtros com dropdown. Quantidade e cidades #}
-            <div class="input-group padding-lr-0 mb-3 col-xs-12 col-md-7">
-                {# Filtro quantidades, retorna variavel qtt #}
-                <select name="qtt" id="qtt" class="form-control form-control-sm">
-                  <option value="10"><b>Quantidade de cinemas</b></option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                </select>
+            <div class="collapse-style margin-b-10" id="accordion">
+                {# FUNDO DO COLLAPSE #}
+                <div class="card">
+                    {#  Botão com referencia ao ID do topo e do body do collapse  #}
+                    <div class="card-header collapsed"  data-toggle="collapse" data-target="#filter" aria-expanded="false" aria-controls="filter" id="filter-body">
+                        <h5 class="mb-0">
+                            {# Titulo com seta #}
+                            <a class="accordion-toggle btn btn-filter btn-lg btn-block text-left">
+                                Filtros
+                            </a>
+                        </h5>
+                    </div>
+                    {# Body com id unica #}
+                    <div id="filter" class="collapse" aria-labelledby="filter-body">
+                        {# Texto com o endereço #}
+                        <div class="card-body">
+                            <p id="card-body">
+                                <div class="row">
+                                    {# Texto com a quantidade de locais #}
+                                    <div class="col-sm-3 col-md-3 col-xs-4 qtt-places margin-tb-10">        
+                                        <p>Quantidade de locais: <b><span id="count-places"></span></b></p>
+                                    </div>
+                                    {# SLIDER - Selecionar quantidade de locais #}
+                                    <div class="col-sm-5 col-md-5 margin-tb-10">
+                                        <div class="""slidecontainer" >
+                                            <input name="qtt" type="range" min="1" max="30" value="10" class="slider" id="range-places">
+                                        </div>
+                                    </div>
+                                </div>   
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             {# CEP e Botão pesquisar #}
-            <div style="position: relative;"class="input-group mb-3">
+            <div style="position: relative;"class="input-group mb-3 input-index">
                 {# Input CEP #}
                 <input type="number" name="cep" class="form-control" placeholder="Digite o CEP para buscar os pontos mais próximos a você" required>
                 {# Botao pesquisar #}
                 <div class="input-group-append">
-                    <button class="btn btn-border" type="submit" name="submit">
+                    <button class="btn btn-fill" type="submit" name="submit">
                         <b>Pesquisar</b>
                         <i class="ion-chevron-right"></i>
                         <i class="ion-chevron-right"></i>
@@ -188,8 +213,5 @@
             </div>
         {% endif %}
     </div>
-</section>
-{# Carrega o JS que redireciona para a sessão locais #}
-<script src="{{ url_for('static', filename='js/section.js') }}"></script>
-    
+</section>    
 {% endblock content %}
