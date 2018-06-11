@@ -282,48 +282,6 @@ $("#cep").focusout(function(){
 	});
 });
 
-/////////////// SCRIPT PARALLAX
-$('#parallax').mousemove(
-	function(e){
-		/* Detecta a posição do mouse */
-		var offset = $(this).offset();
-		var xPos = e.pageX - offset.left;
-		var yPos = e.pageY - offset.top;
-
-		/* Pega a posição em porcentagem */
-		var mouseXPercent = Math.round(xPos / $(this).width() * 50);
-		var mouseYPercent = Math.round(yPos / $(this).height() * 50);
-
-		/* Posiciona cada camada */
-		$(this).children('img').each(
-			function(){
-				var diffX = $('#parallax').width() - $(this).width();
-				var diffY = $('#parallax').height() - $(this).height();
-
-				var myX = diffX * (mouseXPercent / 50);
-
-				var myY = diffY * (mouseYPercent / 50);
-
-				var cssObj = {
-					'left': myX + 'px',
-					'top': myY + 'px'
-				}
-				$(this).animate({
-					left: myX, 
-					top: myY
-				},
-				{
-					duration: 50, 
-					queue: false, 
-					easing: 'linear'
-				});
-
-			}
-		);
-
-	}
-);
-
 /////////////// SLIDER QUANTIDADE DE LOCAIS - FILTROS INDEX
 var slider = document.getElementById("range-places");
 var output = document.getElementById("count-places");

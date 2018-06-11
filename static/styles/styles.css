@@ -303,9 +303,7 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 .main-slider:after{ content:''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: .7;
 	z-index: -1;}
 
-#parallax { background-color: #ed312f; height: 100%; margin: auto; overflow: hidden; position: relative;}
-
-#parallax img {	position: absolute;	top: 0;	left: 0;}
+#parallax { background-color: #ed312f; margin: auto; overflow: hidden; position: relative;}
 
 #parallax-mobile{ display: none;}
 
