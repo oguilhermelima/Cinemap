@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from whitenoise import WhiteNoise
+from flask_compress import Compress
 from flask_login import LoginManager
 from flask_googlemaps import GoogleMaps
 from .db_users import find_user
@@ -10,7 +10,7 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'WYZ')
 
 # GZIP
-app.wsgi_app = WhiteNoise(app.wsgi_app, root='../static', prefix='static/')
+gzip = Compress(app)
 
 # Não retorna 404 quando o usuário insere slash(/) no final da URI
 app.url_map.strict_slashes = False
@@ -28,7 +28,7 @@ def load_user(username):
     user = find_user(username)
     if not user:
         return None
-    return User(user['_id'], user['name'], user['password'], user['email'], user['type'])
+    return User(user['_id'], user['name'], "", user['email'], user['type'])
 
 # Configura a api do Gmaps
 GoogleMaps(app, key="AIzaSyBybFqISUIGfRoLJoSyDUOa_4N4pRUIF8g")
