@@ -32,7 +32,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: local('Poppins Regular'), local('Poppins-Regular'),
+  src: local('Poppins'),
        url('../fonts/poppins/poppins.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('../fonts/poppins/poppins.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/poppins/poppins.woff') format('woff'), /* Modern Browsers */
