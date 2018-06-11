@@ -409,7 +409,6 @@ header .main-menu > li > a:hover:after{ transform: translateX(0%); opacity: 1; }
 
 .info-img{max-width: 60%; margin-top:10%;}
 
-
 /* ---------------------------------
 10. FOOTER
 --------------------------------- */
@@ -750,10 +749,14 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	--------------------------------- */
 	.text-section .intro{ width: 100%; margin-top: 10%; margin-bottom: 10%; color: white; font-size: 1em; }
 
+	/* ---------------------------------
+	10. INFO SECTION
+	--------------------------------- */	
+
 	.info-img{max-width: 30%; margin-top:10%;}
 
 	/* ---------------------------------
-	10. FOOTER
+	11. FOOTER
 	--------------------------------- */
 
 	footer{ padding: 50px 0px 10px; }	
