@@ -704,7 +704,7 @@ footer .footer-section .title:after{ content:''; position: absolute; top: 5px; l
 	--------------------------------- */
 
 	#parallax{display:none;}
-	#parallax-mobile{ display: block; height: 100%;	}
+	#parallax-mobile{ display: block; height: 100vh;	}
 
 	/* ---------------------------------
 	6. SOCIAL SECTION
