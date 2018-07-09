@@ -68,7 +68,7 @@ def create_place():
 
 # Lista todos os locais cadastrado
 @administrator.route('/admin/locais/listalocal')
-def listplace():
+def list_place():
     # Verifica se o usuário é adm, se não for retorna 404
     if is_adm():
         # Busca os locais no banco de dados
@@ -80,7 +80,7 @@ def listplace():
 
 # Formulario que recebe os dados do banco e permite editar as informações
 @administrator.route('/admin/locais/listalocal/editarlocal<string:id>')
-def edit(id):
+def edit_places(id):
     # Verifica se o usuário é adm, se não for retorna 404
     if is_adm():
         try:
@@ -124,18 +124,18 @@ def submit_edit():
         flash("Editado com sucesso!")
     except:
         flash("Erro ao editar")
-    return redirect(url_for('administration.listplace'))
+    return redirect(url_for('administration.list_place'))
 
 # Botão que remove o local da lista de locais
 @administrator.route('/admin/locais/listalocal/removerlocal<string:id>')
-def remove(id):
+def remove_places(id):
     try:
         # Remove o usuário pelo ID
         remove_place(id)
         flash("Removido com sucesso")
     except:
         flash("Não foi possível remover local")
-    return redirect(url_for('administration.listplace'))
+    return redirect(url_for('administration.list_place'))
 
 # Rota que permite gerenciar os usuários
 @administrator.route('/admin/locais/listausuarios')

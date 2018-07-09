@@ -41,8 +41,6 @@ def index():
 
 # Retorna o endereço do CEP inserido pelo usuário
 def temp_user():
-    # Se não existir CEP, retorna uma string vazia
-    place = ''
     # Recebe o valor da variavel cep da uri
     cep_uri = request. args.get('cep')
     try:
@@ -50,9 +48,12 @@ def temp_user():
     	# Retorna um endereço completo (Rua, bairro, cidade, estado e o próprio CEP)
     	cep = consultar_cep(cep_uri)
     except:
+        # Se existir um CEP, mas não conseguir retornar um endereço
         if cep_uri:
+            # Apresenta mensagem de CEP Inválido
             flash("CEP incorreto. Não foi possível encontra-lo")
-        return place
+        # Se não existir CEP, retorna uma string vazia    
+        return ''
     # Recebe o conteudo do CEP    
     name = 'Meu local'
     street = cep['end']

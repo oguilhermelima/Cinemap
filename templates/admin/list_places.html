@@ -29,7 +29,7 @@
                 <td>{{ place.city }}</td>
                 {# Botão editar #}
                 <td style="background-color:#43cea2">
-                    <a class="btn-save" href="{{ url_for('administration.edit', id=place._id) }}">Editar</a>
+                    <a class="btn-save" href="{{ url_for('administration.edit_places', id=place._id) }}">Editar</a>
                 </td>
                 {# Botão remover #}
                 <td class="td-remove">
@@ -53,7 +53,7 @@
                         {# Footer caixa #}
                         <div class="modal-footer">
                             {# Botão confirmar #}
-                            <a href="{{ url_for('administration.remove', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                            <a href="{{ url_for('administration.remove_places', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
                             </a>
                             {# Botão negar #}
                             <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>

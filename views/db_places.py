@@ -49,7 +49,7 @@ def find_by_id(place):
         print("Não foi possivel encontrar local")
 
 # Read one
-# Find por _ID
+# Find por ID
 def find_byid(id):
     # Carrega a collection de locais
     collection = place_collection()
