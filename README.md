@@ -82,6 +82,7 @@ sudo pip3 install gunicorn==19.8.1 flask==0.12.2 pymongo==2.8.1 flask_googlemaps
 ### Exportar e rodar a aplicação
 
 Por fim, para inicializar a aplicação, digite os comandos abaixo:
+
 **Windows**
 ```
 set FLASK_APP=Api.py
