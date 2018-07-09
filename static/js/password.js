@@ -55,3 +55,29 @@ myInput.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
+
+
+var myInputUser = document.getElementById("usuario");
+var lengthUser = document.getElementById("lengthUser");
+
+// When the user clicks on the password field, show the message box
+myInputUser.onfocus = function() {
+  document.getElementById("message-user").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInputUser.onblur = function() {
+  document.getElementById("message-user").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInputUser.onkeyup = function() {
+  // Validate length
+  if(myInputUser.value.length >= 5) {
+    lengthUser.classList.remove("invalid");
+    lengthUser.classList.add("valid");
+  } else {
+    lengthUser.classList.remove("valid");
+    lengthUser.classList.add("invalid");
+  }
+}

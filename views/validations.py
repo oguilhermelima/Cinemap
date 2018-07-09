@@ -4,7 +4,7 @@ from flask_login import current_user
 from pycep_correios import consultar_cep # Api correios que recebe o CEP e retorna o Endereço
 from .db_users import edit_user, find_user, find_email
 
-# Verifica se existe de fato um endereço para o 
+# Verifica se existe de fato um endereço para o CEP que vai ser salvo
 def check_cep(cep):
     try:
         # Recebe o endereço completo do CEP
@@ -25,7 +25,7 @@ def user_exists(username):
     # Procura o username no banco
     user = find_user(username)
     if user:
-        # Se existir, retorna verdadeiro      
+        # Se existir, retorna retorna mensagem de erro 
         return True
     return False
 
@@ -87,16 +87,6 @@ def active_user():
         return True
     return False
 
-# Verifica se o novo username é igual ao antigo ou se o novo usuário existe no banco
-def check_actual_user(actual, new):
-    if actual == new:
-        # Se o username atual e o novo forem iguais, retorna verdadeiro
-        return True
-    elif user_exists(new):
-        # Se não forem iguais, verifica no banco de dados se já existe algum usuário 
-        # com o novo username
-        return False
-    return True
 
 # Verifica se o novo email é igual ao antigo ou se o novo usuário existe no banco
 def check_actual_email(actual, new):
@@ -110,31 +100,21 @@ def check_actual_email(actual, new):
     return True
 
 # Valida as mudanças na edição do usuário
-def validate_edit(username, new_username, email, new_email, name):
+def validate_edit(username, email, new_email, name):
     # Verifica se o novo email existe
     result_email = check_actual_email(email, new_email)
-    # Verifica se o novo username existe
-    result_username = check_actual_user(username, new_username)
     # Se ambos retornarem True, os dados são alterados no banco
-    if result_username and result_email:
+    if result_email:
         # Cria um dict para armazenar no mongo
-        user = {'username' :new_username, 'name': name, 'email': new_email}
+        user = {'name': name, 'email': new_email}
         # Faz update com o dict
         edit_user(username, user)
         # Apresenta mensagem e retorna verdadeiro
         flash("Dados alterados com sucesso!")
         return True
-    elif result_username:
-        # Se o username estiver certo e email inválido
-        flash("E-mail inválido")
-        return False
-    elif result_email:
-        # Se o email estiver válido e o usuário não
-        flash("Username inválido")
-        return False
     else:
         # Se username e e-mail estiverem incorretos
-        flash("Username e e-mail inválidos")
+        flash("E-mail inválido")
         return False
 
 # Faz o hash da nova senha e substitui no banco

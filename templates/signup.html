@@ -12,6 +12,16 @@
       </div>
       {# Cria um form que redireciona para autenticação de novo usuario #}
       <form method="POST" action="{{ url_for('signin.new_user') }}" class="contact100-form validate-form">
+        {# Label e input do usuario #}
+        <div class="wrap-input100 validate-input bg1" data-validate="Username inválido">
+          <span class="label-input100">USUÁRIO</span>
+          <input class="input100" value="{{username}}" type="text" id="usuario" name="usuario" placeholder="Digite um username">
+        </div>
+        {# Verificação se a senha está correta #}
+        <div id="message-user">
+          <b><h5>O seu nome de usuário servirá para login e não poderá ser alterado. Deve conter:</h5></b>
+          <p id="lengthUser" class="invalid">Pelo menos <b>5 caracteres</b></p>
+        </div>
         {# Label e input do nome #}
         <div class="wrap-input100 validate-input bg1" data-validate="Nome inválido">
           <span class="label-input100">NOME</span>
@@ -21,11 +31,6 @@
         <div class="wrap-input100 validate-input bg1" data-validate="E-mail inválido">
           <span class="label-input100">E-MAIL</span>
           <input class="input100" value="{{email}}" type="email" id="email" name="email" placeholder="Digite um email válido do tipo example@example.com">
-        </div>
-        {# Label e input do usuario #}
-        <div class="wrap-input100 validate-input bg1" data-validate="Username inválido">
-          <span class="label-input100">USUÁRIO</span>
-          <input class="input100" value="{{username}}" type="text" id="usuario" name="usuario" placeholder="Digite um username com no mínimo 5 caracteres">
         </div>
         {# Label e input da senha #}
         <div class="wrap-input100" data-validate="Senha inválida">

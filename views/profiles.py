@@ -42,11 +42,10 @@ def finish_edit():
     username = current_user._id
     # Recebe os dados do form
     new_email = request. form['email']
-    new_username = request. form['usuario']
     name = request. form['nome']
     try:
         # Tenta validar os dados e retorna verdadeiro ou falso
-        result = validate_edit(username, new_username, email, new_email, name)
+        result = validate_edit(username, email, new_email, name)
         # Se conseguiu validar, redireciona para o perfil com mensagem de sucesso!
         if result:
             return redirect(url_for('profile.profile'))

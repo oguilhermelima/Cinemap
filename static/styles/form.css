@@ -89,6 +89,8 @@ textarea.input100{min-height:120px;padding-top:9px;padding-bottom:13px;}
 }
 #message{display:none;color:#000;position:relative;padding:10px;margin-top:5px;}
 #message p{padding:10px;font-size:18px;}
+#message-user{display:none;color:#000;position:relative;padding:10px;margin-top:5px;}
+#message-user p{padding:10px;font-size:18px;}
 .valid{color:green;}
 .valid:before{position:relative;left:-35px;}
 .invalid{color:red;}
