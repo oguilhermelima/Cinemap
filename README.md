@@ -1,6 +1,6 @@
-# MAPA
+# CINEMAPS
 
-Página que permite um usuário se cadastrar e salvar os locais mais próximos de um CEP.
+Página que permite um usuário buscar e salvar os cinemas mais próximos de um CEP.
 ## Recursos: ##
 **Usuários:**
 * Cadastro e login
@@ -15,7 +15,7 @@ Página que permite um usuário se cadastrar e salvar os locais mais próximos d
 
 ## Deploy no HEROKU
 
-**LINK HEROKU - [MAPA](http://mapacultural.herokuapp.com/).**
+**LINK HEROKU - [CINEMAPS](http://cinemaps.herokuapp.com).**
 
 ## Deploy
 
@@ -55,6 +55,8 @@ cd maps
 
 ### Pacotes
 
+Agora faça a instalação dos pacotes necessários para rodar a aplicação.
+
 **Opção 1: No mesmo diretório do requiriments.txt execute:**
 
 **Windows**
@@ -71,14 +73,15 @@ sudo pip3 install -r requirements.txt
 
 **Windows**
 ```
-pip3 install flask pymongo==2.8.1 flask_googlemaps==0.2.6 geopy==1.13.0 pycep-correios==2.3.1 flask-login
+pip3 install gunicorn==19.8.1 flask==0.12.2 pymongo==2.8.1 flask_googlemaps==0.2.6 geopy==1.13.0 pycep-correios==2.3.1 flask-login flask_compress
 ```
 **Linux**
 ```
-sudo pip3 install flask pymongo==2.8.1 flask_googlemaps==0.2.6 geopy==1.13.0 pycep-correios==2.3.1 flask-login
+sudo pip3 install gunicorn==19.8.1 flask==0.12.2 pymongo==2.8.1 flask_googlemaps==0.2.6 geopy==1.13.0 pycep-correios==2.3.1 flask-login flask_compress
 ```
 ### Exportar e rodar a aplicação
 
+Por fim, para inicializar a aplicação, digite os comandos abaixo:
 **Windows**
 ```
 set FLASK_APP=Api.py
@@ -100,8 +103,9 @@ flask run
 ## Construído com
 * [Python](https://python.org/) - Linguagem de programação
 * [Flask](http://flask.pocoo.org/) - Microframework Web
-* [Flask Login](https://flask-login.readthedocs.io/en/latest/) - Gestão de usuários
+* [Flask Compress](https://github.com/libwilliam/flask-compress) - Compressão das respostas da aplicação com GZIP
+* [Flask GoogleMaps](https://github.com/rochacbruno/Flask-GoogleMaps) - API que constrói um mapa baseado na Google Maps JavaScript API
+* [Flask Login](https://flask-login.readthedocs.io/en/latest/) - API para gestão de usuários
 * [Geopy](http://geopy.readthedocs.io) - API que gera coordenadas a partir de um endereço
-* [Flask_GoogleMaps](https://github.com/rochacbruno/Flask-GoogleMaps) - API que constrói um mapa baseado na Google Maps JavaScript API
 * [PyCEPCorreios](https://pycep-correios.readthedocs.io/) - API de consulta de CEP
 * [pyMongo](https://api.mongodb.com/python/current/) - Pacote que permite a conexão entre o Python e o banco de dados Mongo
