@@ -10,7 +10,8 @@ ind = Blueprint('index', __name__)
 @ind.route('/')
 def index():
     # Receberá a quantidade de locais a ser pesquisado
-    qtt = 0
+    # Quantidade padrão = 20. Padrão é usado quando não tem pesquisa por CEP 
+    qtt = 20
     # Cria uma váriavel do mapa, se não existir locais, o mapa carrega sem pontos
     new_map = ''
     # Define o index sem tabela, a tabela será verdadeira quando existir um CEP digitado
