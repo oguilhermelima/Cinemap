@@ -85,14 +85,14 @@ Por fim, para inicializar a aplicação, digite os comandos abaixo:
 
 **Windows**
 ```
-set FLASK_APP=Api.py
+set FLASK_APP=app.py
 ```
 ```
 flask run
 ```
 **Linux**
 ```
-export FLASK_APP=Api.py
+export FLASK_APP=app.py
 ```
 ```
 flask run
