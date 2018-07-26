@@ -9,11 +9,30 @@ def request_html(url):
     req = requests.get(url)
     # Resultado do conteudo
     result = req.text[0:]
-    # Recebe o conteudo HTML
-    html = BeautifulSoup(result, "lxml")
-
+    # Faz casting para o tipo BS
+    html = BeautifulSoup(result,"lxml")
     return html
-            
+ 
+# Quebra o html em varias linhas
+def transform_html_list(result):
+    # Lista que vai receber as linhas
+    html_list = []
+    # String que vai receber o texto
+    html_str = ''
+    # HTML convertido em String
+    result = str(result)
+    # Para cada letra na String
+    for letter in range(0, len(result)):
+    # Concatena na String 
+        html_str += result[letter]
+        # Quando a letra for igual a tag de fechamento
+        if result[letter] == '>':
+        # Adiciona a linha na lista
+            html_list.append(html_str)
+            # Limpa a string
+            html_str = ''
+    return html_list
+
 # Retorna o conteudo em texto das divs
 def remove_tags(html):
     # Receberá o conteudo final sem as tags
@@ -40,7 +59,7 @@ def cinemark(html):
     price = ''
     pricess = []
     para = []
-    session_type = ''
+    section_type = ''
     # Recebe todas as divs com preços e informação da sala
     for div in html.find_all('div', {"class":"hidden"}):
         if "Preço" in div.text:
@@ -49,13 +68,12 @@ def cinemark(html):
         title = content[i].find('div', {"class":"modal-title"}).text
         for p in content[i].find('p'):
             if "price-cinemark" in p:
-                session_type = p.text
-                print (session_type)
+                section_type = p.text
             elif "price-infos" in p:
                 price = p.text
-            para.append({"type":session_type, "price": price})    
+            para.append({"type":section_type, "price": price})    
 
-    return 0
+    return para
 
 # Rede UCI
 def uci(html):
@@ -99,7 +117,7 @@ def cine_araujo(html, url, city):
     # Array com dict de locais e id
     final = []
     # Extração do conteudo em html apenas com as options
-    content = BeautifulSoup(str(html),"html.parser")
+    content = BeautifulSoup(str(html), "html.parser")
     # Para cada termo 'option' no conteudo html
     for option in content.findAll('option',):
         try:
@@ -118,13 +136,13 @@ def cine_araujo(html, url, city):
             # Gera a nova url
             url = url + "?cid_id=" + final[i]['id']
     # Retorna a nova url
-    html = request_html(url,0)
+    html = transform_html_list(request_html(url))
     # Variavel para armazenar o html extraído
     content = ''
     # Para cada linha entre 0 e o tamanho do array com o documento html
     for i in range(0, len(html)):
         # Se existir div com o id theater-prices que guarda as informações de preço
-        if 'id="precosWrapper"' in html[i]:
+        if '<div id="precosWrapper"' in html[i]:
             # + 1 no contador de divs
             count_div += 1
             # Enquanto existir <div
@@ -137,7 +155,7 @@ def cine_araujo(html, url, city):
                     # Remove um do contador
                     count_div -= 1
                 # Adiciona a linha na váriavel texto enquanto existir conteudo dentro das divs
-                content += html[i] + '\n'
+                content += html[i]
                 # Passa pra próxima linha        
                 i+=1
     return remove_tags(content)
@@ -155,13 +173,13 @@ def select_cine(cine, url, city):
     # Se a rede de cinemas for a Playarte   
     if cine.lower() == 'playarte':
         # Recebe o conteudo html
-        lines = request_html(url, 1)
         return playarte(lines)
     # Se a rede de cinemas for a UCI    
     if cine.lower() == 'cine araujo':
         return cine_araujo(lines, url, city)
 
-print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
+#print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
 #print(select_cine('uci', 'https://www.ucicinemas.com.br/cinemas/UCI-Santana-Parque-Shopping', 0))
-#print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri'))
-#print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
+#print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri', ""))
+print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
+#print(remove_tags(request_html('http://www.playartecinemas.com.br/cinemas/bri')))
