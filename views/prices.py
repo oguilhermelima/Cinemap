@@ -87,6 +87,8 @@ def playarte(html):
     count_div = 0
     # Variavel para armazenar as divs
     content = ''
+    # Transforma o html em uma lista
+    html = transform_html_list(html)
     # Para cada linha entre 0 e o tamanho do array com o documento html
     for i in range(0, len(html)):
         # Se existir div com o id theater-prices que guarda as informações de preço
@@ -168,18 +170,17 @@ def select_cine(cine, url, city):
     if cine.lower() == 'cinemark':
         return cinemark(lines)
     # Se a rede de cinemas for a UCI    
-    if cine.lower() == 'uci':
+    elif cine.lower() == 'uci':
         return uci(lines)
     # Se a rede de cinemas for a Playarte   
-    if cine.lower() == 'playarte':
-        # Recebe o conteudo html
+    elif cine.lower() == 'playarte':
         return playarte(lines)
     # Se a rede de cinemas for a UCI    
-    if cine.lower() == 'cine araujo':
+    elif cine.lower() == 'cine araujo':
         return cine_araujo(lines, url, city)
 
 #print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
 #print(select_cine('uci', 'https://www.ucicinemas.com.br/cinemas/UCI-Santana-Parque-Shopping', 0))
 #print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri', ""))
-print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
-#print(remove_tags(request_html('http://www.playartecinemas.com.br/cinemas/bri')))
+#print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
+print(select_cine('playarte','http://www.playartecinemas.com.br/cinemas/bri', 0))
