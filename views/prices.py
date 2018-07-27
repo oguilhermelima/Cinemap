@@ -15,18 +15,18 @@ def request_html(url):
  
 # Quebra o html em varias linhas
 def transform_html_list(result):
-    # Lista que vai receber as linhas
+    # Lista que vai receber cada linha do html
     html_list = []
     # String que vai receber o texto
     html_str = ''
     # HTML convertido em String
     result = str(result)
     # Para cada letra na String
-    for letter in range(0, len(result)):
+    for letter in result:
     # Concatena na String 
-        html_str += result[letter]
+        html_str += letter
         # Quando a letra for igual a tag de fechamento
-        if result[letter] == '>':
+        if letter == '>':
         # Adiciona a linha na lista
             html_list.append(html_str)
             # Limpa a string
@@ -57,16 +57,15 @@ def remove_tags(html):
 def cinemark(html):
     content = []
     price = ''
-    pricess = []
     para = []
     section_type = ''
     # Recebe todas as divs com preços e informação da sala
     for div in html.find_all('div', {"class":"hidden"}):
         if "Preço" in div.text:
             content.append(div)
-    for i in range(0, len(content)):
-        title = content[i].find('div', {"class":"modal-title"}).text
-        for p in content[i].find('p'):
+    for line in content:
+        title = line.find('div', {"class":"modal-title"}).text
+        for p in line.find('p'):
             if "price-cinemark" in p:
                 section_type = p.text
             elif "price-infos" in p:
@@ -79,7 +78,7 @@ def cinemark(html):
 def uci(html):
     # Recebe todas as divs com preços e informação da sala
     divs = html.find_all('div', {"class":"cinema-texto-informativo"})    
-    return divs
+    return remove_tags(str(divs))
 
 # Rede PlayArte       
 def playarte(html):
@@ -90,9 +89,9 @@ def playarte(html):
     # Transforma o html em uma lista
     html = transform_html_list(html)
     # Para cada linha entre 0 e o tamanho do array com o documento html
-    for i in range(0, len(html)):
+    for i in range(len(html)):
         # Se existir div com o id theater-prices que guarda as informações de preço
-        if 'class=salaArea"' in html[i]:
+        if 'id="precos"' in html[i]:
             # + 1 no contador de divs
             count_div += 1
             # Enquanto existir <div
@@ -112,12 +111,8 @@ def playarte(html):
 
 # Rede Cine Araujo       
 def cine_araujo(html, url, city):
-    # Cria um contador da quantidade de divs
-    count_div = 0
-    # Variavel para armazenar as divs
-    content = ''
     # Array com dict de locais e id
-    final = []
+    finalCities = []
     # Extração do conteudo em html apenas com as options
     content = BeautifulSoup(str(html), "html.parser")
     # Para cada termo 'option' no conteudo html
@@ -128,21 +123,23 @@ def cine_araujo(html, url, city):
             # Faz unicode da cidade que está no formato latin
             city =  ((option.text).encode('latin1')).decode('utf-8')
             # Recebe o texto da option e quebra a linha
-            final.append({'city': city, 'id': value})
+            finalCities.append({'city': city, 'id': value})
         except:
             pass
     # Passa pelo array de cidades
-    for i in range(len(final)):
+    for city in finalCities:
         # Se a cidade existir na lista, busca o id
-        if final[i]['city'] == "Taboão da Serra":
+        if city['city'] == "Taboão da Serra":
             # Gera a nova url
-            url = url + "?cid_id=" + final[i]['id']
-    # Retorna a nova url
+            url = url + "?cid_id=" + city['id']
+    # Retorna o html da nova url
     html = transform_html_list(request_html(url))
+    # Cria um contador da quantidade de divs
+    count_div = 0
     # Variavel para armazenar o html extraído
     content = ''
     # Para cada linha entre 0 e o tamanho do array com o documento html
-    for i in range(0, len(html)):
+    for i in range(len(html)):
         # Se existir div com o id theater-prices que guarda as informações de preço
         if '<div id="precosWrapper"' in html[i]:
             # + 1 no contador de divs
@@ -182,5 +179,5 @@ def select_cine(cine, url, city):
 #print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
 #print(select_cine('uci', 'https://www.ucicinemas.com.br/cinemas/UCI-Santana-Parque-Shopping', 0))
 #print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri', ""))
-#print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
-print(select_cine('playarte','http://www.playartecinemas.com.br/cinemas/bri', 0))
+print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
+#print(select_cine('playarte','http://www.playartecinemas.com.br/cinemas/bri', 0))
