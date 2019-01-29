@@ -3,7 +3,7 @@ from geopy.geocoders import GoogleV3 # Api GMAPS
 
 # Transforma um endereço(numero + rua + bairro + cidade + estado) em coordenadas
 def coordenates(address):
-    place = GoogleV3(timeout=30)
+    place = GoogleV3(timeout=30, api_key="AIzaSyBybFqISUIGfRoLJoSyDUOa_4N4pRUIF8g")
     coordenate = place.geocode(address)
     return coordenate
 
