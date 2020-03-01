@@ -1,6 +1,6 @@
 # CINEMAPS
 
-Página que permite um usuário buscar e salvar os cinemas mais próximos de um CEP.
+Página que permite um usuário buscar e salvar os cinemas mais próximos de um CEP na região de São Paulo.
 ## Recursos: ##
 **Usuários:**
 * Cadastro e login
