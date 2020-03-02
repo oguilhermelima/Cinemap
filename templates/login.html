@@ -11,9 +11,9 @@
         <span class="contact100-form-title">Seja bem-vindo</span>
       </div>
       {# Formulario que redireciona para rotar autenticate #}
-      <form method="POST" action="{{ url_for('signin.autenticate') }}"  class="contact100-form validate-form">
+      <form method="POST" action="{{ url_for('signin.authenticate') }}"  class="contact100-form validate-form">
         {# Input oculto que recebe o valor da proxima url #}
-        <input type="hidden" name="proxima" value="{{ proxima or url_for('index.index') }}">
+        <input type="hidden" name="proxima" value="{{ proxima or url_for('index.home') }}">
         {# Label e input do usuário #}
         <div class="wrap-input100 validate-input bg1" data-validate="Username obrigatório">
           <span class="label-input100">USUÁRIO</span>

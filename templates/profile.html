@@ -18,7 +18,7 @@
                     <b>E-mail:</b> {{ current_user.email }}
                 </h4>
                 {# Botão editar dados #}
-                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.edit_user') }}">
+                <a class="btn btn-reverse margin-b-30" href="{{ url_for('profile.edit_account') }}">
                     <b>EDITAR DADOS</b>
                     <i class="ion-chevron-right"></i>
                     <i class="ion-chevron-right"></i>
@@ -56,7 +56,7 @@
             {# Footer caixa #}
             <div class="modal-footer">
                 {# Botão confirmar #}
-                <a href="{{ url_for('profile.remove_user') }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                <a href="{{ url_for('profile.delete_account') }}">  <button type="submit" class="btn btn-danger">SIM</button>
                 </a>
                 {# Botão negar #}
                 <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>
@@ -139,7 +139,7 @@
                             {# Footer caixa #}
                             <div class="modal-footer">
                                 {# Botão confirmar #}
-                                <a href="{{ url_for('profile.delete_place', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
+                                <a href="{{ url_for('profile.delete_place_from_bookmarks', id=place._id) }}">  <button type="submit" class="btn btn-danger">SIM</button>
                                 </a>
                                 {# Botão negar #}
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">NÃO</button>

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from bs4 import BeautifulSoup
-import requests 
+import requests
+
 
 # Faz requisição da url e retorna o seu conteúdo html
 def request_html(url):
@@ -10,9 +11,10 @@ def request_html(url):
     # Resultado do conteudo
     result = req.text[0:]
     # Faz casting para o tipo BS
-    html = BeautifulSoup(result,"lxml")
+    html = BeautifulSoup(result, "lxml")
     return html
- 
+
+
 # Quebra o html em varias linhas
 def transform_html_list(result):
     # Lista que vai receber cada linha do html
@@ -23,15 +25,16 @@ def transform_html_list(result):
     result = str(result)
     # Para cada letra na String
     for letter in result:
-    # Concatena na String 
+        # Concatena na String
         html_str += letter
         # Quando a letra for igual a tag de fechamento
         if letter == '>':
-        # Adiciona a linha na lista
+            # Adiciona a linha na lista
             html_list.append(html_str)
             # Limpa a string
             html_str = ''
     return html_list
+
 
 # Retorna o conteudo em texto das divs
 def remove_tags(html):
@@ -40,47 +43,50 @@ def remove_tags(html):
     # BeautifulSoup - biblioteca que extrai texto do conteudo html
     # Modelo - BeautifulSoup (counteudo_html, parser)
     # Parsers
-        # html.parser (Rápido mas não muito tolerante)
-        # lxml (Muito rápido, tolerante mas faz uso externo de bibliotecas em C) 
-            # Instalação pip3 install lxml
-        # html5lib (Extremamente tolerante, faz o parse igual a navegadores, porém muito lento)
-            # Instalação pip3 install html5lib
+    # html.parser (Rápido mas não muito tolerante)
+    # lxml (Muito rápido, tolerante mas faz uso externo de bibliotecas em C)
+    # Instalação pip3 install lxml
+    # html5lib (Extremamente tolerante, faz o parse igual a navegadores, porém muito lento)
+    # Instalação pip3 install html5lib
     # Extração do conteudo em html apenas com as divs
-    content = BeautifulSoup(html,"lxml")
+    content = BeautifulSoup(html, "lxml")
     # Para cada termo 'div' no conteudo html
-    for div in content.findAll('div',):
+    for div in content.findAll('div', ):
         # Recebe o texto da div e quebra a linha
         final = (final + div.text) + "\n"
     return final
 
-# Rede Cinemak        
+
+# Rede Cinemak
 def cinemark(html):
     content = []
     price = ''
     para = []
     section_type = ''
     # Recebe todas as divs com preços e informação da sala
-    for div in html.find_all('div', {"class":"hidden"}):
+    for div in html.find_all('div', {"class": "hidden"}):
         if "Preço" in div.text:
             content.append(div)
     for line in content:
-        title = line.find('div', {"class":"modal-title"}).text
+        title = line.find('div', {"class": "modal-title"}).text
         for p in line.find('p'):
             if "price-cinemark" in p:
                 section_type = p.text
             elif "price-infos" in p:
                 price = p.text
-            para.append({"type":section_type, "price": price})    
+            para.append({"type": section_type, "price": price})
 
     return para
+
 
 # Rede UCI
 def uci(html):
     # Recebe todas as divs com preços e informação da sala
-    divs = html.find_all('div', {"class":"cinema-texto-informativo"})    
+    divs = html.find_all('div', {"class": "cinema-texto-informativo"})
     return remove_tags(str(divs))
 
-# Rede PlayArte       
+
+# Rede PlayArte
 def playarte(html):
     # Cria um contador da quantidade de divs
     count_div = 0
@@ -106,22 +112,23 @@ def playarte(html):
                 # Adiciona a linha na váriavel texto enquanto existir conteudo dentro das divs
                 content += html[i] + '\n'
                 # Passa pra próxima linha        
-                i+=1
+                i += 1
     return remove_tags(content)
 
-# Rede Cine Araujo       
+
+# Rede Cine Araujo
 def cine_araujo(html, url, city):
     # Array com dict de locais e id
     finalCities = []
     # Extração do conteudo em html apenas com as options
     content = BeautifulSoup(str(html), "html.parser")
     # Para cada termo 'option' no conteudo html
-    for option in content.findAll('option',):
+    for option in content.findAll('option', ):
         try:
             # Recebe o valor do atributo value
             value = option['value']
             # Faz unicode da cidade que está no formato latin
-            city =  ((option.text).encode('latin1')).decode('utf-8')
+            city = ((option.text).encode('latin1')).decode('utf-8')
             # Recebe o texto da option e quebra a linha
             finalCities.append({'city': city, 'id': value})
         except:
@@ -156,8 +163,9 @@ def cine_araujo(html, url, city):
                 # Adiciona a linha na váriavel texto enquanto existir conteudo dentro das divs
                 content += html[i]
                 # Passa pra próxima linha        
-                i+=1
+                i += 1
     return remove_tags(content)
+
 
 # Seleciona as divs com o conteúdo dos preços
 def select_cine(cine, url, city):
@@ -176,8 +184,9 @@ def select_cine(cine, url, city):
     elif cine.lower() == 'cine araujo':
         return cine_araujo(lines, url, city)
 
-#print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
-#print(select_cine('uci', 'https://www.ucicinemas.com.br/cinemas/UCI-Santana-Parque-Shopping', 0))
-#print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri', ""))
+
+# print(select_cine('cinemark', 'https://www.cinemark.com.br/sao-paulo/cinemas', 0))
+# print(select_cine('uci', 'https://www.ucicinemas.com.br/cinemas/UCI-Santana-Parque-Shopping', 0))
+# print(select_cine('playarte', 'http://www.playartecinemas.com.br/cinemas/bri', ""))
 print(select_cine('cine araujo', 'http://www.cinearaujo.com.br/precos.asp', "Taboão da Serra"))
-#print(select_cine('playarte','http://www.playartecinemas.com.br/cinemas/bri', 0))
+# print(select_cine('playarte','http://www.playartecinemas.com.br/cinemas/bri', 0))

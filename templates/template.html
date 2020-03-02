@@ -20,23 +20,23 @@
                 {# Lista com os links #}
                 <ul class="main-menu visible-on-click" id="main-menu">
                     {# Se o usuário não for administrador #}
-                    {% if not current_user.type == "admin" %}
+                    {% if not current_user.category == "admin" %}
                         {# Se não existir usuário logado #}
                         {% if not current_user.name %}
-                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('index.home') }}">Ínicio</a></li>
                         <li><a href="{{ url_for('signin.login') }}">Entrar</a></li>
                         <li><a href="{{ url_for('signin.register') }}">Cadastrar</a></li>
                         {# Se o usuário estiver logado #}
                         {% else %}
                         <li><a>Olá, {{ current_user.name }}</a></li>
-                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('index.home') }}">Ínicio</a></li>
                         <li><a href="{{ url_for('profile.profile') }}">Meu perfil</a></li>
                         <li><a href="{{ url_for('signin.logout') }}">Logout</a></li>
                         {% endif %}
                     {# Se o usuário for administrador #}    
                     {% else %}
                         <li><a>Olá, {{ current_user.name }}</a></li>
-                        <li><a href="{{ url_for('index.index') }}">Ínicio</a></li>
+                        <li><a href="{{ url_for('index.home') }}">Ínicio</a></li>
                         <li><a href="{{ url_for('administration.dashboard') }}">Gerenciar</a></li>
                         <li><a href="{{ url_for('profile.profile') }}">Meu perfil</a></li>
                         <li><a href="{{ url_for('signin.logout') }}">Logout</a></li>

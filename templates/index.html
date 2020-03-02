@@ -131,7 +131,7 @@
                                     </div>
                                     {# SLIDER - Selecionar quantidade de locais #}
                                     <div class="col-sm-5 col-md-5 margin-tb-10">
-                                        <div class="""slidecontainer" >
+                                        <div class="slidecontainer" >
                                             <input name="qtt" type="range" min="1" max="30" value="10" class="slider" id="range-places">
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@
         {# Carrega o mapa com as coordenadas #}
         {{movingmap.js}}<p>{{movingmap.html}}</p>
         {# Se existir alguma pesquisa de CEP, cria uma lista #}
-        {% if table %}
+        {% if accordion %}
             {# Cria uma lista de collapses com 10px de margem no topo#}
             <div class="collapse-style" id="accordion">
                 {# Para cada lugar no array de lugares, cria um collapse #}
@@ -197,7 +197,7 @@
                                 {# Se existir, usuário logado, permite salvar o local #}
                                 {% if current_user.name %}
                                 {# Botão salvar local #}
-                                <a class="btn btn-red margin-b-30" href="{{ url_for('profile.save_place', id=place._id, cep=cep, qtt=qtt) }}">
+                                <a class="btn btn-red margin-b-30" href="{{ url_for('profile.add_place_to_bookmarks', id=place._id, cep=place.cep, qtt=qtt) }}">
                                     <i class="fa fa-save"></i>
                                     <b>SALVAR</b>
                                     <i class="ion-chevron-right"></i>

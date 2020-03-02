@@ -1,11 +1,12 @@
 from flask_googlemaps import Map
-from geopy.geocoders import GoogleV3 # Api GMAPS
+from geopy.geocoders import GoogleV3  # Api GMAPS
+
 
 # Transforma um endereço(numero + rua + bairro + cidade + estado) em coordenadas
-def coordenates(address):
+def get_coordinates(address):
     place = GoogleV3(timeout=30, api_key="AIzaSyBybFqISUIGfRoLJoSyDUOa_4N4pRUIF8g")
-    coordenate = place.geocode(address)
-    return coordenate
+    return place.geocode(address)
+
 
 # Recebe os endereços do banco de dados e cria uma lista no formato aceito pela API do mapa
 def map_address(places):
@@ -15,21 +16,22 @@ def map_address(places):
         # Cria um infobox com: Nome, rua, numbero, bairro, cidade, estado e o CEP que será
         # apresentado no mapa
         infobox = (
-            '<div style="font-size:18px"><b>' + 
-                (places[i]['name']) + '</b>' + 
-            '</div>' + 
-            '<div style="font-size:14px">' +
-                '<div>'+ (places[i]['street']) + ', ' + (places[i]['number']) + '</div>' +
+                '<div style="font-size:18px"><b>' +
+                (places[i]['name']) + '</b>' +
+                '</div>' +
+                '<div style="font-size:14px">' +
+                '<div>' + (places[i]['street']) + ', ' + (places[i]['number']) + '</div>' +
                 '<div>' + (places[i]['neighbor']) + ' - ' + (places[i]['city']) + '</div>' +
                 '<div>' + (places[i]['state']) + ' - ' + (places[i]['cep']) + '</div>' +
-            '</div>'
-            )
+                '</div>'
+        )
         # Armazena na lista o endereço no novo formato
         adresses.append((places[i]['lat'], places[i]['lng'], infobox, places[i]['icon']))
     return adresses
 
+
 # Retorna uma instancia do tipo MAP com os dados para criar o mapa
-def maps(places):
+def create_map_pin(places):
     return Map(
         identifier="movingmap",
         varname="movingmap",
@@ -44,5 +46,3 @@ def maps(places):
         # Pontos do mapa
         markers=map_address(places)
     )
- 
-

@@ -1,4 +1,4 @@
-# CINEMAPS
+# CINEMAP
 
 Página que permite um usuário buscar e salvar os cinemas mais próximos de um CEP na região de São Paulo.
 ## Recursos: ##
@@ -40,13 +40,13 @@ sudo apt-get install python3-pip
 
 ### Clone do repositório ###
 
-**Opção 1: Faça o download do repositório** - [Download](https://github.com/oguilherme-lima/maps/archive/master.zip)
+**Opção 1: Faça o download do repositório** - [Download](https://github.com/oguilhermelima/Cinemap/archive/master.zip)
 
 Extraia o ZIP, e acesse **maps-master**
 
 **Opção 2: Faça o clone pelo Git Bash**
 ```
-git clone https://github.com/oguilherme-lima/maps.git
+git clone https://github.com/oguilhermelima/Cinemap.git
 ```
 Depois digite
 ```
