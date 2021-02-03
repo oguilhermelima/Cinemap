@@ -1,6 +1,6 @@
 # CINEMAP
 
-Meu primeiro projeto em programação, com um pequeno refactor de organização de dominios.
+Meu primeiro projeto em python, com um pequeno refactor de organização de dominios.
 O objetivo do site é ser uma página que permite um usuário buscar e salvar os cinemas mais próximos de um CEP na região de São Paulo.
 ## Recursos: ##
 **Usuários:**
